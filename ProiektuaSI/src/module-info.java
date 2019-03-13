@@ -1,9 +1,0 @@
-/**
- * 
- */
-/**
- * @author andur
- *
- */
-module ProiektuaSI {
-}
