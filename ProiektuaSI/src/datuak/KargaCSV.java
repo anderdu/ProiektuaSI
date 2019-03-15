@@ -60,6 +60,13 @@ public class KargaCSV implements DatuenKarga {
 		return this.produkBal;
 	}
 	
+	public HashMap<Integer, String> produktuenIzenburuak() {
+		HashMap<Integer, String> emaitza = new HashMap<Integer, String>();
+		// HAY QUE HACERLO!!!!!!!!!!!!!!
+		
+		return emaitza;
+	}
+	
 	public static void main(String[] args) {
 		KargaCSV proba = new KargaCSV();
 		proba.produktuenBalorazioak();
