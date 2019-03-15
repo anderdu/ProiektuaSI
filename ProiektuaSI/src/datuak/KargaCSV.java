@@ -13,7 +13,7 @@ public class KargaCSV implements DatuenKarga {
 
 	public HashMap<Integer, ArrayList<Float>> produktuenBalorazioak() {
 		
-		String csvFile = "C:/Users/-/git/ProiektuaSI/prueba/csv/movie-ratings.csv";
+		String csvFile = "C:/Users/-/git/ProiektuaSI/ProiektuaSI/csv/movie-ratings.csv";
 //		String csvFile = "C:/Users/-/Desktop/movie-ratings.csv";
 		BufferedReader br = null;
         String line = "";
@@ -32,7 +32,7 @@ public class KargaCSV implements DatuenKarga {
                 userId = Integer.parseInt(lerroa[0]);
                 produktuId = Integer.parseInt(lerroa[1]);
                 balorazio = Float.parseFloat(lerroa[2]);
-                System.out.println("userId: " + userId + " , produktuId: " + produktuId + " , balorazio: " + balorazio);
+//                System.out.println("userId: " + userId + " , produktuId: " + produktuId + " , balorazio: " + balorazio);
                 
                 if (!this.produkBal.containsKey(produktuId)) {
                 	ArrayList<Float> bereBalorazioak = new ArrayList<Float>();

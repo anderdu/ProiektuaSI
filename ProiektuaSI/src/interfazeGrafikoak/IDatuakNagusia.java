@@ -66,7 +66,7 @@ public class IDatuakNagusia extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				HashMap<Integer, ArrayList<Float>> produkBal = kargaInterfaze.produktuenBalorazioak();
 				contentPane.setVisible(false);
-				new IDatuakBalorazioak();
+				new IDatuakBalorazioak(produkBal);
 			}
 		});
 		sl_contentPane.putConstraint(SpringLayout.WEST, btnBalorazioak, 40, SpringLayout.WEST, contentPane);
