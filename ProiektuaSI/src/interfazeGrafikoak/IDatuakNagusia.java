@@ -62,15 +62,15 @@ public class IDatuakNagusia extends JFrame {
 		kargaInterfaze = new KargaCSV();
 		
 		JButton btnBalorazioak = new JButton("Balorazioak");
+		sl_contentPane.putConstraint(SpringLayout.NORTH, btnBalorazioak, 102, SpringLayout.NORTH, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.WEST, btnBalorazioak, 40, SpringLayout.WEST, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.SOUTH, btnBalorazioak, -104, SpringLayout.SOUTH, contentPane);
 		btnBalorazioak.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				HashMap<Integer, ArrayList<Float>> produkBal = kargaInterfaze.produktuenBalorazioak();
-				contentPane.setVisible(false);
 				new IDatuakBalorazioak(produkBal);
 			}
 		});
-		sl_contentPane.putConstraint(SpringLayout.WEST, btnBalorazioak, 40, SpringLayout.WEST, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.SOUTH, btnBalorazioak, 147, SpringLayout.NORTH, contentPane);
 		contentPane.add(btnBalorazioak);
 		
 		JLabel label = new JLabel("");
@@ -84,14 +84,15 @@ public class IDatuakNagusia extends JFrame {
 		contentPane.add(label_1);
 		
 		JButton btnIzenburuak = new JButton("Izenburuak");
+		sl_contentPane.putConstraint(SpringLayout.EAST, btnBalorazioak, -11, SpringLayout.WEST, btnIzenburuak);
 		sl_contentPane.putConstraint(SpringLayout.WEST, btnIzenburuak, 204, SpringLayout.WEST, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.EAST, btnIzenburuak, -92, SpringLayout.EAST, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.NORTH, btnBalorazioak, 0, SpringLayout.NORTH, btnIzenburuak);
-		sl_contentPane.putConstraint(SpringLayout.EAST, btnBalorazioak, -6, SpringLayout.WEST, btnIzenburuak);
-		sl_contentPane.putConstraint(SpringLayout.NORTH, btnIzenburuak, 102, SpringLayout.NORTH, contentPane);
 		sl_contentPane.putConstraint(SpringLayout.SOUTH, btnIzenburuak, -104, SpringLayout.SOUTH, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.EAST, btnIzenburuak, -80, SpringLayout.EAST, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.NORTH, btnIzenburuak, 102, SpringLayout.NORTH, contentPane);
 		btnIzenburuak.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				HashMap<Integer, String> produkIzenburuak = kargaInterfaze.produktuenIzenburuak();
+				new IDatuakIzenburuak(produkIzenburuak);
 			}
 		});
 		contentPane.add(btnIzenburuak);

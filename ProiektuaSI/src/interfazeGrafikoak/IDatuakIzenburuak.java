@@ -20,10 +20,11 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class IDatuakBalorazioak extends JFrame {
+public class IDatuakIzenburuak extends JFrame {
 
 	private JPanel contentPane;
 	private JTable table;
+	private JButton btnAtzera;
 
 	/**
 	 * Launch the application.
@@ -32,8 +33,8 @@ public class IDatuakBalorazioak extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					HashMap<Integer, ArrayList<Float>> produkBal = null;
-					IDatuakBalorazioak frame = new IDatuakBalorazioak(produkBal);
+					HashMap<Integer, String> produkIzenburuak = null;
+					IDatuakIzenburuak frame = new IDatuakIzenburuak(produkIzenburuak);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -45,7 +46,7 @@ public class IDatuakBalorazioak extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public IDatuakBalorazioak(HashMap<Integer, ArrayList<Float>> produkBal) {
+	public IDatuakIzenburuak(HashMap<Integer, String> produkIzenburuak) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(500, 100, 450, 300);
 		contentPane = new JPanel();
@@ -57,17 +58,17 @@ public class IDatuakBalorazioak extends JFrame {
 		setVisible(true);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		sl_contentPane.putConstraint(SpringLayout.NORTH, scrollPane, 50, SpringLayout.NORTH, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.WEST, scrollPane, 70, SpringLayout.WEST, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.SOUTH, scrollPane, -63, SpringLayout.SOUTH, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.EAST, scrollPane, -57, SpringLayout.EAST, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.NORTH, scrollPane, 35, SpringLayout.NORTH, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.WEST, scrollPane, 55, SpringLayout.WEST, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.SOUTH, scrollPane, -43, SpringLayout.SOUTH, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.EAST, scrollPane, -75, SpringLayout.EAST, contentPane);
 		contentPane.add(scrollPane);
 	
 		
 	
-		String[] columns = {"ProduktuId","Balorazioa"};
+		String[] columns = {"ProduktuId","Izenburua"};
 		
-		Iterator it = produkBal.entrySet().iterator();
+		Iterator it = produkIzenburuak.entrySet().iterator();
 		DefaultTableModel model = new DefaultTableModel(columns,0);
 		while(it.hasNext()) {
 			Map.Entry lerro = (Map.Entry) it.next();
@@ -79,14 +80,14 @@ public class IDatuakBalorazioak extends JFrame {
 		table = new JTable(model);
 		scrollPane.setViewportView(table);
 		
-		JButton btnAtzera = new JButton("Atzera");
+		btnAtzera = new JButton("Atzera");
 		btnAtzera.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				dispose();
 			}
 		});
-		sl_contentPane.putConstraint(SpringLayout.NORTH, btnAtzera, 15, SpringLayout.SOUTH, scrollPane);
-		sl_contentPane.putConstraint(SpringLayout.EAST, btnAtzera, -160, SpringLayout.EAST, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.NORTH, btnAtzera, 10, SpringLayout.SOUTH, scrollPane);
+		sl_contentPane.putConstraint(SpringLayout.EAST, btnAtzera, -165, SpringLayout.EAST, contentPane);
 		contentPane.add(btnAtzera);
 	}
 }
