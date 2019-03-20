@@ -65,7 +65,7 @@ public class IDatuakBalorazioak extends JFrame {
 	
 		
 	
-		String[] columns = {"ProduktuId","Balorazioa"};
+		String[] columns = {"ProduktuId","Balorazioak"};
 		
 		Iterator it = produkBal.entrySet().iterator();
 		DefaultTableModel model = new DefaultTableModel(columns,0);
