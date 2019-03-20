@@ -62,6 +62,7 @@ public class KargaCSV implements DatuenKarga {
 		return this.produkBal;
 	}
 	
+
 	public HashMap<Integer, String> produktuenIzenburuak(){
 		
 		String csvFile = "C:\\Users\\yo\\git\\ProiektuaSI\\ProiektuaSI\\csv\\movie-titles.csv";

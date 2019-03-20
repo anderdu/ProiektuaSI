@@ -91,8 +91,14 @@ public class IDatuakNagusia extends JFrame {
 		sl_contentPane.putConstraint(SpringLayout.NORTH, btnIzenburuak, 102, SpringLayout.NORTH, contentPane);
 		btnIzenburuak.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+
 				HashMap<Integer, String> produkIzenburuak = kargaInterfaze.produktuenIzenburuak();
 				new IDatuakIzenburuak(produkIzenburuak);
+
+				HashMap<Integer, String> produkIz = kargaInterfaze.produktuenIzenburuak();
+				contentPane.setVisible(false);
+				new IDatuaIzenburuak(produkIz);
+
 			}
 		});
 		contentPane.add(btnIzenburuak);
