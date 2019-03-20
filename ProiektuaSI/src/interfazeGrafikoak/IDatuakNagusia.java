@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 
 import datuak.DatuenKarga;
 import datuak.KargaCSV;
+import eragiketak.GureSistema;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -28,7 +29,7 @@ import java.awt.event.ActionEvent;
 public class IDatuakNagusia extends JFrame {
 
 	private JPanel contentPane;
-	
+	private GureSistema nGureSistema;
 	private DatuenKarga kargaInterfaze;
 
 	/**
@@ -59,6 +60,7 @@ public class IDatuakNagusia extends JFrame {
 		SpringLayout sl_contentPane = new SpringLayout();
 		contentPane.setLayout(sl_contentPane);
 		
+		nGureSistema = GureSistema.getGureSistema();
 		kargaInterfaze = new KargaCSV();
 		
 		JButton btnBalorazioak = new JButton("Balorazioak");
@@ -67,7 +69,7 @@ public class IDatuakNagusia extends JFrame {
 		sl_contentPane.putConstraint(SpringLayout.SOUTH, btnBalorazioak, -104, SpringLayout.SOUTH, contentPane);
 		btnBalorazioak.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				HashMap<Integer, ArrayList<Float>> produkBal = kargaInterfaze.produktuenBalorazioak();
+				HashMap<Integer, ArrayList<Float>> produkBal = nGureSistema.produktuenBalorazioak();
 				new IDatuakBalorazioak(produkBal);
 			}
 		});
@@ -92,11 +94,10 @@ public class IDatuakNagusia extends JFrame {
 		btnIzenburuak.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 
-				HashMap<Integer, String> produkIzenburuak = kargaInterfaze.produktuenIzenburuak();
+				HashMap<Integer, String> produkIzenburuak = nGureSistema.produktuenIzenburuak();
 				new IDatuakIzenburuak(produkIzenburuak);
 
-				HashMap<Integer, String> produkIz = kargaInterfaze.produktuenIzenburuak();
-				contentPane.setVisible(false);
+				HashMap<Integer, String> produkIz = nGureSistema.produktuenIzenburuak();
 				new IDatuaIzenburuak(produkIz);
 
 			}
