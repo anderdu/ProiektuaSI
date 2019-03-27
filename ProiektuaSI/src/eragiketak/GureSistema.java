@@ -49,10 +49,10 @@ public class GureSistema {
 	public static void main(String[] args) {
 		GureSistema g = GureSistema.getGureSistema();
 		g.pertsonakAtera();
-		System.out.println(g.pertsonak.size());
-//		for (Pertsona p : g.pertsonak) {
-//			p.inprimatu();
-//		}
+		System.out.println("Pertsona kopurua: " + g.pertsonak.size());
+		for (Pertsona p : g.pertsonak) {
+			p.inprimatu();
+		}
 		
 	}
 	

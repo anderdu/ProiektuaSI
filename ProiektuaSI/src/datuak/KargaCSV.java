@@ -132,8 +132,12 @@ public class KargaCSV implements DatuenKarga {
             line = br.readLine();
             lerroa = line.split(cvsSplitBy);
             aurrekoUserId = Integer.parseInt(lerroa[0]);
+            produktuId = Integer.parseInt(lerroa[1]);
+            balorazio = Float.parseFloat(lerroa[2]);
             
             this.listaPertsonak.add(new Pertsona(aurrekoUserId));
+            this.listaPertsonak.get(0).balorazioaSartu(produktuId, balorazio);
+            
             int pos = 0;
             
             while ((line = br.readLine()) != null) {
@@ -145,7 +149,7 @@ public class KargaCSV implements DatuenKarga {
                 balorazio = Float.parseFloat(lerroa[2]);
 //                System.out.println("userId: " + userId + " , produktuId: " + produktuId + " , balorazio: " + balorazio);
                 
-                if (aurrekoUserId != userId) {
+                if (!aurrekoUserId.equals(userId)) {
                 	this.listaPertsonak.add(new Pertsona(userId));
                 	pos ++;
                 	aurrekoUserId = userId;
