@@ -14,12 +14,14 @@ public class GureSistema {
 	
 	private DatuenKarga karga;
 	private Antzekotasuna antzekotasun;
+	private ArrayList<Pertsona> pertsonak;
 	
 	
 	private GureSistema() {
 		karga = new KargaCSV();
 		balorazioak = new HashMap<Integer, ArrayList<Float>>();
 		izenburuak = new HashMap<Integer, String>();
+		pertsonak = new ArrayList<Pertsona>();
 	}
 	
 	public static synchronized GureSistema getGureSistema() {
@@ -32,9 +34,26 @@ public class GureSistema {
 		this.balorazioak = karga.produktuenBalorazioak();
 		return this.balorazioak;
 	}
+	
 	public HashMap<Integer, String> produktuenIzenburuak() {
 		this.izenburuak = karga.produktuenIzenburuak();
 		return this.izenburuak;
+	}
+	
+	public ArrayList<Pertsona> pertsonakAtera() {
+		this.pertsonak = karga.pertsonakAtera();
+		return this.pertsonak;
+	}
+	
+	// Probatzeko
+	public static void main(String[] args) {
+		GureSistema g = GureSistema.getGureSistema();
+		g.pertsonakAtera();
+		System.out.println(g.pertsonak.size());
+//		for (Pertsona p : g.pertsonak) {
+//			p.inprimatu();
+//		}
+		
 	}
 	
 }

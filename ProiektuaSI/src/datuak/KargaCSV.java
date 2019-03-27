@@ -7,10 +7,12 @@ public class KargaCSV implements DatuenKarga {
 	
 	private HashMap<Integer, ArrayList<Float>> produkBal;
 	private HashMap<Integer, String> produkIzenburuak;
+	private ArrayList<Pertsona> listaPertsonak;
 	
 	public KargaCSV() {
 		this.produkBal =  new HashMap<Integer, ArrayList<Float>>();
 		this.produkIzenburuak =  new HashMap<Integer, String>();
+		this.listaPertsonak = new ArrayList<Pertsona>();
 	}
 
 	public HashMap<Integer, ArrayList<Float>> produktuenBalorazioak() {
@@ -110,6 +112,65 @@ public class KargaCSV implements DatuenKarga {
 		return this.produkIzenburuak;
     
 		
+	}
+	
+	public ArrayList<Pertsona> pertsonakAtera() {
+		
+		String csvFile = "C:/Users/-/git/ProiektuaSI/ProiektuaSI/csv/movie-ratings.csv";
+		
+		BufferedReader br = null;
+        String line = "";
+        String cvsSplitBy = ",";
+
+        try {
+
+            br = new BufferedReader(new FileReader(csvFile));
+            String[] lerroa;
+            Integer aurrekoUserId,userId,produktuId;
+            Float balorazio;
+            
+            line = br.readLine();
+            lerroa = line.split(cvsSplitBy);
+            aurrekoUserId = Integer.parseInt(lerroa[0]);
+            
+            this.listaPertsonak.add(new Pertsona(aurrekoUserId));
+            int pos = 0;
+            
+            while ((line = br.readLine()) != null) {
+
+                // use comma as separator
+                lerroa = line.split(cvsSplitBy);
+                userId = Integer.parseInt(lerroa[0]);
+                produktuId = Integer.parseInt(lerroa[1]);
+                balorazio = Float.parseFloat(lerroa[2]);
+//                System.out.println("userId: " + userId + " , produktuId: " + produktuId + " , balorazio: " + balorazio);
+                
+                if (aurrekoUserId != userId) {
+                	this.listaPertsonak.add(new Pertsona(userId));
+                	pos ++;
+                	aurrekoUserId = userId;
+                }
+                
+                this.listaPertsonak.get(pos).balorazioaSartu(produktuId, balorazio);
+
+            }
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (br != null) {
+                try {
+                    br.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+		
+		
+		return this.listaPertsonak;
 	}
 	
 	public static void main(String[] args) {
