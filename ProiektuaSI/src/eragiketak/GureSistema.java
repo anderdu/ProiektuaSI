@@ -67,14 +67,13 @@ public class GureSistema {
 					ant = antzekotasun.antzekotasunaKalkulatu(key, key2, balorazioak);
 					produk = new ProduktuInfo(key2, ant);
 					
-					if(!Double.isNaN(ant)) {
-						if(produktuEredua.get(key) == null)
-							listaProduk = new ArrayList<ProduktuInfo>();
-						else
-							listaProduk = produktuEredua.get(key);
-						listaProduk.add(produk);
-						produktuEredua.put(key, listaProduk);
-					}
+					if(produktuEredua.get(key) == null)
+						listaProduk = new ArrayList<ProduktuInfo>();
+					else
+						listaProduk = produktuEredua.get(key);
+					listaProduk.add(produk);
+					produktuEredua.put(key, listaProduk);
+				
 				}
 			}
 
@@ -102,6 +101,7 @@ public class GureSistema {
 		
 		for(Entry<Integer, ArrayList<Float>> entry : g.balorazioak.entrySet()) {
 			System.out.println(g.antzekotasun.antzekotasunaKalkulatu(12, entry.getKey(), g.balorazioak));
+//			g.antzekotasunGuztiakKalkulatu();
 		}
 	}
 	
