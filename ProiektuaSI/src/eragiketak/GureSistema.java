@@ -57,14 +57,17 @@ public class GureSistema {
 		Integer key,key2;
 		ArrayList<ProduktuInfo> listaProduk;
 		
-		for(Entry<Integer, ArrayList<Float>> entry : balorazioak.entrySet()) {
+//		HashMap<Integer, ArrayList<Float>> a = this.produktuenBalorazioak();
+		
+		for(Entry<Integer, ArrayList<Float>> entry : this.balorazioak.entrySet()) {
 		    key = entry.getKey();
 		    System.out.println(key);
 		    
-			for(Entry<Integer, ArrayList<Float>> entry2 : balorazioak.entrySet()) {
+			for(Entry<Integer, ArrayList<Float>> entry2 : this.balorazioak.entrySet()) {
 				key2 = entry2.getKey(); 
 				if(key2 != key) {
-					ant = antzekotasun.antzekotasunaKalkulatu(key, key2, balorazioak);
+					System.out.println(key + "-ren eta " + key2 + "-ren arteko antzekotasuna");
+					ant = antzekotasun.antzekotasunaKalkulatu(key, key2, this.balorazioak);
 					produk = new ProduktuInfo(key2, ant);
 					
 					if(produktuEredua.get(key) == null)
@@ -89,7 +92,7 @@ public class GureSistema {
 //		for (Pertsona p : g.pertsonak) {
 //			p.inprimatu();
 //		}
-		g.produktuenBalorazioak();
+		System.out.println(g.produktuenBalorazioak().size());
 //		g.antzekotasunGuztiakKalkulatu();
 //		for(Entry<Integer, ArrayList<ProduktuInfo>> entry : g.produktuEredua.entrySet()) {
 //			System.out.println("Produktu orokorra: " + entry.getKey());
@@ -100,7 +103,7 @@ public class GureSistema {
 //		}
 		
 		for(Entry<Integer, ArrayList<Float>> entry : g.balorazioak.entrySet()) {
-			System.out.println(g.antzekotasun.antzekotasunaKalkulatu(12, entry.getKey(), g.balorazioak));
+//			System.out.println(g.antzekotasun.antzekotasunaKalkulatu(12, entry.getKey(), g.balorazioak));
 //			g.antzekotasunGuztiakKalkulatu();
 		}
 	}
