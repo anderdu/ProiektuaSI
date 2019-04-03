@@ -2,6 +2,8 @@ package eragiketak;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map.*;
+
 
 import datuak.*;
 
@@ -11,6 +13,7 @@ public class GureSistema {
 	
 	private HashMap<Integer, ArrayList<Float>> balorazioak;
 	private HashMap<Integer, String> izenburuak;
+	private HashMap<Integer, ArrayList<ProduktuInfo>> produktuEredua;
 	
 	private DatuenKarga karga;
 	private Antzekotasuna antzekotasun;
@@ -22,6 +25,8 @@ public class GureSistema {
 		balorazioak = new HashMap<Integer, ArrayList<Float>>();
 		izenburuak = new HashMap<Integer, String>();
 		pertsonak = new ArrayList<Pertsona>();
+		antzekotasun = new Kosinua();
+		produktuEredua = new HashMap<Integer, ArrayList<ProduktuInfo>>();
 	}
 	
 	public static synchronized GureSistema getGureSistema() {
@@ -45,15 +50,59 @@ public class GureSistema {
 		return this.pertsonak;
 	}
 	
+	public void antzekotasunGuztiakKalkulatu() {
+		
+		Float ant;
+		ProduktuInfo produk;
+		Integer key,key2;
+		ArrayList<ProduktuInfo> listaProduk;
+		
+		for(Entry<Integer, ArrayList<Float>> entry : balorazioak.entrySet()) {
+		    key = entry.getKey();
+		    System.out.println(key);
+		    
+			for(Entry<Integer, ArrayList<Float>> entry2 : balorazioak.entrySet()) {
+				key2 = entry2.getKey(); 
+				if(key2 != key) {
+					ant = antzekotasun.antzekotasunaKalkulatu(key, key2, balorazioak);
+					produk = new ProduktuInfo(key2, ant);
+					
+					if(produktuEredua.get(key) == null)
+						listaProduk = new ArrayList<ProduktuInfo>();
+					else
+						listaProduk = produktuEredua.get(key);
+					listaProduk.add(produk);
+					produktuEredua.put(key, listaProduk);
+				
+				}
+			}
+
+		}
+		
+	}
+	
 	// Probatzeko
 	public static void main(String[] args) {
 		GureSistema g = GureSistema.getGureSistema();
-		g.pertsonakAtera();
-		System.out.println("Pertsona kopurua: " + g.pertsonak.size());
-		for (Pertsona p : g.pertsonak) {
-			p.inprimatu();
-		}
+//		g.pertsonakAtera();
+//		System.out.println("Pertsona kopurua: " + g.pertsonak.size());
+//		for (Pertsona p : g.pertsonak) {
+//			p.inprimatu();
+//		}
+		g.produktuenBalorazioak();
+//		g.antzekotasunGuztiakKalkulatu();
+//		for(Entry<Integer, ArrayList<ProduktuInfo>> entry : g.produktuEredua.entrySet()) {
+//			System.out.println("Produktu orokorra: " + entry.getKey());
+//			for (ProduktuInfo lista : entry.getValue()) {
+//				lista.inprimatu();
+//			}
+//			System.out.println("##################");
+//		}
 		
+		for(Entry<Integer, ArrayList<Float>> entry : g.balorazioak.entrySet()) {
+			System.out.println(g.antzekotasun.antzekotasunaKalkulatu(12, entry.getKey(), g.balorazioak));
+//			g.antzekotasunGuztiakKalkulatu();
+		}
 	}
 	
 	
