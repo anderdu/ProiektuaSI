@@ -8,7 +8,7 @@ public class Kosinua implements Antzekotasuna {
 	public Kosinua() {
 		
 	}
-	
+	//a
 	public Float antzekotasunaKalkulatu(int p1, int p2, HashMap<Integer, ArrayList<Float>> hashMap) {
 		
 		if (!hashMap.containsKey(p1) || !hashMap.containsKey(p2)) {
