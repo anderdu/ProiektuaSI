@@ -88,7 +88,7 @@ public class GureSistema {
 		Float emaitza = 0.0f;
 		int idAux;
 		Float batukari1 = 0.0f, batukari2 = 0.0f;
-		
+		//
 		this.ordenatu(idE);
 		
 		for (int i = 0; i < 30; i++) {
