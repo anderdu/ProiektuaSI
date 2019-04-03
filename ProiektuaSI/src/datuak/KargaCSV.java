@@ -16,7 +16,7 @@ public class KargaCSV implements DatuenKarga {
 	}
 
 	public HashMap<Integer, ArrayList<Float>> produktuenBalorazioak() {
-		
+		//a
 		String csvFile = "csv/movie-ratings.csv";
 //		String csvFile = "C:\\Users\\yo\\git\\ProiektuaSI\\ProiektuaSI\\csv\\movie-ratings.csv";
 //		String csvFile = "C:\\Users\\Oihanion\\git\\ProiektuaSI\\ProiektuaSI\\csv\\movie-ratings.csv";
