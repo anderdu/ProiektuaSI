@@ -16,4 +16,12 @@ public class ProduktuInfo {
 		System.out.println("Antzekotasuna: " + this.antzekotasuna);
 		System.out.println("---------------------");
 	}
+	
+	public int getId() {
+		return this.id;
+	}
+	
+	public Float getAntzekotasuna() {
+		return this.antzekotasuna;
+	}
 }

@@ -84,6 +84,67 @@ public class GureSistema {
 		
 	}
 	
+	public Float estimatuBalorazioak(int idE, int idPelikula) {
+		Float emaitza = 0.0f;
+		int idAux;
+		Float batukari1 = 0.0f, batukari2 = 0.0f;
+		
+		this.ordenatu(idE);
+		
+		for (int i = 0; i < 30; i++) {
+			idAux = this.produktuEredua.get(idE).get(i).getId();
+			batukari1= batukari1 + balorazioaBilatu(idE, idPelikula) * antzekotasun.antzekotasunaKalkulatu(idAux, idPelikula, this.balorazioak);
+			batukari2= batukari2 + antzekotasun.antzekotasunaKalkulatu(idAux, idPelikula, this.balorazioak);
+		}
+		
+		emaitza = batukari1/batukari2;
+		
+		return emaitza;
+		
+	}
+	
+	public void ordenatu(int idE) {
+		// produktu eredua ordenatu --> handienetik txikienera
+		
+		//produktuEredua = new HashMap<Integer, ArrayList<ProduktuInfo>>();
+		
+		ArrayList<ProduktuInfo> lista = this.produktuEredua.get(idE);
+		Float max = lista.get(0).getAntzekotasuna();
+		ArrayList<ProduktuInfo> listaAux = new ArrayList<ProduktuInfo>();
+		int pos = 0;
+		
+		for (int k = 0; k < lista.size(); k++) {
+			for (int i = 0; i < lista.size(); i++) {
+				if(lista.get(i).getAntzekotasuna() > max) {
+					max = lista.get(i).getAntzekotasuna();
+					pos = i;
+				}
+			}
+			listaAux.add(lista.remove(pos));
+		}
+		this.produktuEredua.put(idE, listaAux);
+	}
+	
+	public Float balorazioaBilatu(int idUser, int idFilm) {
+		HashMap<Integer, Float> bal = null;
+		boolean aurkituta = false;
+		
+		for (int i = 0; i < this.pertsonak.size() && !aurkituta; i++) {
+			if(this.pertsonak.get(i).getId() == idUser) {
+				aurkituta = true;
+				bal = this.pertsonak.get(i).getBereBalorazioak();
+			}
+		}
+		
+		for(Entry<Integer, Float> entry : bal.entrySet()) {
+		    if(entry.getKey() == idFilm)
+		    	return bal.get(idFilm);
+		}
+		
+		return 0.0f;
+		
+	}
+	
 	// Probatzeko
 	public static void main(String[] args) {
 		GureSistema g = GureSistema.getGureSistema();

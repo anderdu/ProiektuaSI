@@ -30,5 +30,13 @@ public class Pertsona {
 		}
 		System.out.println("----------------------");
 	}
+	
+	public int getId() {
+		return this.id;
+	}
+	
+	public HashMap<Integer, Float> getBereBalorazioak() {
+		return this.bereBalorazioak;
+	}
 
 }
