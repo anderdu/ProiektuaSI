@@ -9,6 +9,8 @@ import javax.swing.border.EmptyBorder;
 
 import datuak.DatuenKarga;
 import datuak.KargaCSV;
+import datuak.Pertsona;
+import datuak.ProduktuInfo;
 import eragiketak.GureSistema;
 
 import javax.swing.BoxLayout;
@@ -103,6 +105,18 @@ public class IDatuakNagusia extends JFrame {
 			}
 		});
 		contentPane.add(btnIzenburuak);
+		
+		JButton btnPelikulaEstimatu = new JButton("Pelikula estimatu!");
+		btnPelikulaEstimatu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				HashMap<Integer, ArrayList<Float>> produkBal = nGureSistema.produktuenBalorazioak();
+				ArrayList<Pertsona> pertsonak = nGureSistema.pertsonakAtera();
+				nGureSistema.antzekotasunGuztiakKalkulatu();
+				new IEstimatu(nGureSistema);
+			}
+		});
+		sl_contentPane.putConstraint(SpringLayout.NORTH, btnPelikulaEstimatu, 40, SpringLayout.SOUTH, btnBalorazioak);
+		sl_contentPane.putConstraint(SpringLayout.WEST, btnPelikulaEstimatu, 153, SpringLayout.WEST, contentPane);
+		contentPane.add(btnPelikulaEstimatu);
 	}
-
 }

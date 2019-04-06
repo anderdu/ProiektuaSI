@@ -50,6 +50,10 @@ public class GureSistema {
 		return this.pertsonak;
 	}
 	
+	public HashMap<Integer, ArrayList<ProduktuInfo>> getProduktuEredua(){
+		return this.produktuEredua;
+	}
+	
 	public void antzekotasunGuztiakKalkulatu() {
 		
 		Float ant;
