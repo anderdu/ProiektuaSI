@@ -101,9 +101,6 @@ public class GureSistema {
 		
 		emaitza = batukari1/batukari2;
 		
-//		DecimalFormat formato1 = new DecimalFormat("#.#");
-////		emaitza = Float.parseFloat(System.out.println(formato1.format(emaitza)));
-//		emaitza = (float) Math.round(emaitza*100.0/100.0);
 		emaitza = borobildu(emaitza);
 		return emaitza;
 		

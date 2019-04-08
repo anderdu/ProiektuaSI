@@ -81,6 +81,8 @@ public class IDatuakBalorazioak extends JFrame {
 		btnAtzera.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				dispose();
+				IDatuakNagusia frame = new IDatuakNagusia();
+				frame.setVisible(true);
 			}
 		});
 		sl_contentPane.putConstraint(SpringLayout.NORTH, btnAtzera, 15, SpringLayout.SOUTH, scrollPane);

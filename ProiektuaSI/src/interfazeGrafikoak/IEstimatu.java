@@ -83,6 +83,8 @@ public class IEstimatu extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
+				IDatuakNagusia frame = new IDatuakNagusia();
+				frame.setVisible(true);
 			}
 		});
 		

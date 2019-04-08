@@ -81,6 +81,8 @@ public class IDatuakIzenburuak extends JFrame {
 		btnAtzera.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				dispose();
+				IDatuakNagusia frame = new IDatuakNagusia();
+				frame.setVisible(true);
 			}
 		});
 		sl_contentPane.putConstraint(SpringLayout.NORTH, btnAtzera, 10, SpringLayout.SOUTH, scrollPane);
