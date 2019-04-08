@@ -68,7 +68,7 @@ public class GureSistema {
 			for(Entry<Integer, ArrayList<Float>> entry2 : this.balorazioak.entrySet()) {
 				key2 = entry2.getKey(); 
 				if(key2 != key) {
-					System.out.println(key + "-ren eta " + key2 + "-ren arteko antzekotasuna");
+//					System.out.println(key + "-ren eta " + key2 + "-ren arteko antzekotasuna");
 					ant = antzekotasun.antzekotasunaKalkulatu(key, key2, this.balorazioak);
 					produk = new ProduktuInfo(key2, ant);
 					

@@ -87,7 +87,7 @@ public class KargaCSV implements DatuenKarga {
                 if (!this.produkIzenburuak.containsKey(produktuId)) {
                 	this.produkIzenburuak.put(produktuId, izenburua);
                 } else {
-                	System.out.println("Produktu hau badago");
+//                	System.out.println("Produktu hau badago");
                 }
 
             }

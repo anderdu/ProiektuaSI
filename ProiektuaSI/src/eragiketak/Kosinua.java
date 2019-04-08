@@ -54,7 +54,7 @@ public class Kosinua implements Antzekotasuna {
 				emaitza = (float) (batukaria / (erro1 * erro2));
 			else 
 				emaitza = 0f;
-			System.out.println("emaitza: " + emaitza);
+//			System.out.println("emaitza: " + emaitza);
 			
 			return emaitza;
 		}	
