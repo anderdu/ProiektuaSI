@@ -1,5 +1,6 @@
 package interfazeGrafikoak;
 
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.util.HashMap;
 
@@ -53,6 +54,8 @@ public class IDatuakIzenburuak extends JFrame {
 		contentPane.setLayout(sl_contentPane);
 		this.setExtendedState(MAXIMIZED_BOTH);
 		setVisible(true);
+		
+		getContentPane().setBackground(Color.RED);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		sl_contentPane.putConstraint(SpringLayout.NORTH, scrollPane, 35, SpringLayout.NORTH, contentPane);

@@ -1,5 +1,6 @@
 package interfazeGrafikoak;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Graphics;
@@ -61,6 +62,8 @@ public class IDatuakNagusia extends JFrame {
 		nGureSistema = GureSistema.getGureSistema();
 		kargaInterfaze = new KargaCSV();
 		
+		getContentPane().setBackground(Color.CYAN);
+		
 		// JPanel batean
 //		Dimension tamaina = getSize();
 //		argazkia = new ImageIcon(getClass().getResource("tv-the-flash05.jpg"));
@@ -105,8 +108,8 @@ public class IDatuakNagusia extends JFrame {
 				HashMap<Integer, String> produkIzenburuak = nGureSistema.produktuenIzenburuak();
 				new IDatuakIzenburuak(produkIzenburuak);
 
-				HashMap<Integer, String> produkIz = nGureSistema.produktuenIzenburuak();
-				new IDatuaIzenburuak(produkIz);
+//				HashMap<Integer, String> produkIz = nGureSistema.produktuenIzenburuak();
+//				new IDatuaIzenburuak(produkIz);
 				
 				dispose();
 

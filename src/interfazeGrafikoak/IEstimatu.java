@@ -1,5 +1,6 @@
 package interfazeGrafikoak;
 
+import java.awt.Color;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -58,6 +59,8 @@ public class IEstimatu extends JFrame {
 		
 		textField = new JTextField();
 		textField.setColumns(10);
+		
+		getContentPane().setBackground(Color.CYAN);
 		
 		
 		JLabel lblPelikularenIdentifikatzailea = new JLabel("Pelikularen identifikatzailea:");
