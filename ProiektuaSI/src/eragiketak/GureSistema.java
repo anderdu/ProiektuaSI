@@ -63,7 +63,7 @@ public class GureSistema {
 		
 		for(Entry<Integer, ArrayList<Float>> entry : this.balorazioak.entrySet()) {
 		    key = entry.getKey();
-		    System.out.println(key);
+//		    System.out.println(key);
 		    
 			for(Entry<Integer, ArrayList<Float>> entry2 : this.balorazioak.entrySet()) {
 				key2 = entry2.getKey(); 
