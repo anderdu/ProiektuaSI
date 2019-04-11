@@ -13,11 +13,11 @@ public class GureSistema {
 	
 	private HashMap<Integer, ArrayList<Float>> balorazioak;
 	private HashMap<Integer, String> izenburuak;
-	private HashMap<Integer, ArrayList<ProduktuInfo>> produktuEredua;
 	
 	private DatuenKarga karga;
 	private Antzekotasuna antzekotasun;
 	private ArrayList<Pertsona> pertsonak;
+	private EstimazioaKalkulatu estimazio;
 	
 	
 	private GureSistema() {
@@ -26,7 +26,7 @@ public class GureSistema {
 		izenburuak = new HashMap<Integer, String>();
 		pertsonak = new ArrayList<Pertsona>();
 		antzekotasun = new Kosinua();
-		produktuEredua = new HashMap<Integer, ArrayList<ProduktuInfo>>();
+		estimazio = EstimazioaKalkulatu.getEstimazioaKalkulatu();
 	}
 	
 	public static synchronized GureSistema getGureSistema() {
@@ -50,8 +50,9 @@ public class GureSistema {
 		return this.pertsonak;
 	}
 	
-	public HashMap<Integer, ArrayList<ProduktuInfo>> getProduktuEredua(){
-		return this.produktuEredua;
+	
+	public HashMap<Integer, ArrayList<Float>> getBalorazioak() {
+		return this.balorazioak;
 	}
 	
 	public void antzekotasunGuztiakKalkulatu() {
@@ -72,12 +73,12 @@ public class GureSistema {
 					ant = antzekotasun.antzekotasunaKalkulatu(key, key2, this.balorazioak);
 					produk = new ProduktuInfo(key2, ant);
 					
-					if(produktuEredua.get(key) == null)
+					if(estimazio.getProduktuEredua().get(key) == null)
 						listaProduk = new ArrayList<ProduktuInfo>();
 					else
-						listaProduk = produktuEredua.get(key);
+						listaProduk = estimazio.getProduktuEredua().get(key);
 					listaProduk.add(produk);
-					produktuEredua.put(key, listaProduk);
+					estimazio.gehituProduktuaEreduari(key, listaProduk);
 				
 				}
 			}
@@ -86,68 +87,6 @@ public class GureSistema {
 		
 	}
 	
-	public Float estimatuBalorazioak(int idE, int idPelikula) {
-		Float emaitza = 0.0f;
-		int idAux;
-		Float batukari1 = 0.0f, batukari2 = 0.0f;
-		//
-		this.ordenatu(idPelikula);
-		
-		for (int i = 0; i < 30; i++) {
-			idAux = this.produktuEredua.get(idPelikula).get(i).getId();
-			batukari1= batukari1 + balorazioaBilatu(idE, idPelikula) * antzekotasun.antzekotasunaKalkulatu(idAux, idPelikula, this.balorazioak);
-			batukari2= batukari2 + antzekotasun.antzekotasunaKalkulatu(idAux, idPelikula, this.balorazioak);
-		}
-		
-		emaitza = batukari1/batukari2;
-		
-		emaitza = borobildu(emaitza);
-		return emaitza;
-		
-	}
-	
-	public Float borobildu(Float num) {
-		
-		String a = String.valueOf(num);
-		if(Float.parseFloat(String.valueOf(a.charAt(0))) + 0.25f > num)
-			return Float.parseFloat(String.valueOf(a.charAt(0)));
-		else if ((Float.parseFloat(String.valueOf(a.charAt(0))) + 0.25f < num) && Float.parseFloat(String.valueOf(a.charAt(0))) + 0.75f > num)
-			return (Float.parseFloat(String.valueOf(a.charAt(0))) + 0.5f);
-		else
-			return (Float.parseFloat(String.valueOf(a.charAt(0))) + 1.0f);
-		
-	}
-	
-	public void ordenatu(int idE) {
-		// produktu eredua ordenatu --> handienetik txikienera
-		
-		ArrayList<ProduktuInfo> lista = this.produktuEredua.get(idE);
-		Float max = lista.get(0).getAntzekotasuna();
-		ArrayList<ProduktuInfo> listaAux = new ArrayList<ProduktuInfo>();
-		int pos;
-		int a;
-		
-		while(!lista.isEmpty()) {
-			a = 0;
-			pos = 0;
-			while(a < lista.size()) {
-				if(lista.get(a).getAntzekotasuna().compareTo(max) == 1) {
-					max = lista.get(a).getAntzekotasuna();
-					pos = a;
-				}
-				else if (lista.size() == 1) {
-					max = lista.get(0).getAntzekotasuna();
-					pos = 0;
-				}
-				a++;
-			}
-			listaAux.add(lista.remove(pos));
-			if (!lista.isEmpty())
-				max = lista.get(0).getAntzekotasuna();
-			
-		}
-		this.produktuEredua.put(idE, listaAux);
-	}
 	
 	public Float balorazioaBilatu(int idUser, int idFilm) {
 		HashMap<Integer, Float> bal = null;
@@ -169,28 +108,13 @@ public class GureSistema {
 		
 	}
 	
+	public Float estimatuBalorazioak(int idE, int idPelikula) {
+		return estimazio.estimatuBalorazioak(idE, idPelikula);
+	}
+	
 	// Probatzeko
 	public static void main(String[] args) {
 		GureSistema g = GureSistema.getGureSistema();
-//		g.pertsonakAtera();
-//		System.out.println("Pertsona kopurua: " + g.pertsonak.size());
-//		for (Pertsona p : g.pertsonak) {
-//			p.inprimatu();
-//		}
-		System.out.println(g.produktuenBalorazioak().size());
-//		g.antzekotasunGuztiakKalkulatu();
-//		for(Entry<Integer, ArrayList<ProduktuInfo>> entry : g.produktuEredua.entrySet()) {
-//			System.out.println("Produktu orokorra: " + entry.getKey());
-//			for (ProduktuInfo lista : entry.getValue()) {
-//				lista.inprimatu();
-//			}
-//			System.out.println("##################");
-//		}
-		
-//		for(Entry<Integer, ArrayList<Float>> entry : g.balorazioak.entrySet()) {
-//			System.out.println(g.antzekotasun.antzekotasunaKalkulatu(12, entry.getKey(), g.balorazioak));
-//			g.antzekotasunGuztiakKalkulatu();
-//		}
 	}
 	
 	

@@ -131,5 +131,15 @@ public class IDatuakNagusia extends JFrame {
 			}
 		});
 		contentPane.add(btnPelikulaEstimatu);
+		
+		JButton btnAtera = new JButton("Itxi");
+		btnAtera.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				dispose();
+			}
+		});
+		sl_contentPane.putConstraint(SpringLayout.SOUTH, btnAtera, -10, SpringLayout.SOUTH, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.EAST, btnAtera, -22, SpringLayout.EAST, contentPane);
+		contentPane.add(btnAtera);
 	}
 }

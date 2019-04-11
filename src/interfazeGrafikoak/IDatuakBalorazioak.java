@@ -58,10 +58,10 @@ public class IDatuakBalorazioak extends JFrame {
 		getContentPane().setBackground(Color.RED);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		sl_contentPane.putConstraint(SpringLayout.NORTH, scrollPane, 50, SpringLayout.NORTH, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.WEST, scrollPane, 70, SpringLayout.WEST, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.SOUTH, scrollPane, -63, SpringLayout.SOUTH, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.EAST, scrollPane, -57, SpringLayout.EAST, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.NORTH, scrollPane, 29, SpringLayout.NORTH, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.WEST, scrollPane, 69, SpringLayout.WEST, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.SOUTH, scrollPane, -84, SpringLayout.SOUTH, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.EAST, scrollPane, -58, SpringLayout.EAST, contentPane);
 		contentPane.add(scrollPane);
 	
 		
@@ -81,6 +81,8 @@ public class IDatuakBalorazioak extends JFrame {
 		scrollPane.setViewportView(table);
 		
 		JButton btnAtzera = new JButton("Atzera");
+		sl_contentPane.putConstraint(SpringLayout.NORTH, btnAtzera, 17, SpringLayout.SOUTH, scrollPane);
+		sl_contentPane.putConstraint(SpringLayout.EAST, btnAtzera, -173, SpringLayout.EAST, contentPane);
 		btnAtzera.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				dispose();
@@ -88,8 +90,16 @@ public class IDatuakBalorazioak extends JFrame {
 				frame.setVisible(true);
 			}
 		});
-		sl_contentPane.putConstraint(SpringLayout.NORTH, btnAtzera, 15, SpringLayout.SOUTH, scrollPane);
-		sl_contentPane.putConstraint(SpringLayout.EAST, btnAtzera, -160, SpringLayout.EAST, contentPane);
 		contentPane.add(btnAtzera);
+		
+		JButton btnItxi = new JButton("Itxi");
+		sl_contentPane.putConstraint(SpringLayout.SOUTH, btnItxi, 0, SpringLayout.SOUTH, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.EAST, btnItxi, -10, SpringLayout.EAST, contentPane);
+		btnItxi.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				dispose();
+			}
+		});
+		contentPane.add(btnItxi);
 	}
 }

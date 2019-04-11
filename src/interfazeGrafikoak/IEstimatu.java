@@ -26,6 +26,7 @@ public class IEstimatu extends JFrame {
 	private JButton btnEstimatu;
 	private JButton btnNewButton;
 	private JTextField textField_2;
+	private JButton btnItxi;
 	
 
 	/**
@@ -50,7 +51,7 @@ public class IEstimatu extends JFrame {
 	 */
 	public IEstimatu(GureSistema nGureSistema) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 500, 350);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -91,6 +92,13 @@ public class IEstimatu extends JFrame {
 			}
 		});
 		
+		btnItxi = new JButton("Itxi");
+		btnItxi.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
+		
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
@@ -119,6 +127,9 @@ public class IEstimatu extends JFrame {
 							.addContainerGap()
 							.addComponent(lblPelikularenIdentifikatzailea)))
 					.addContainerGap(260, Short.MAX_VALUE))
+				.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+					.addContainerGap(335, Short.MAX_VALUE)
+					.addComponent(btnItxi))
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
@@ -137,7 +148,8 @@ public class IEstimatu extends JFrame {
 						.addComponent(textField_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addGap(18)
 					.addComponent(btnNewButton)
-					.addContainerGap(27, Short.MAX_VALUE))
+					.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+					.addComponent(btnItxi))
 		);
 		contentPane.setLayout(gl_contentPane);
 	}
