@@ -111,6 +111,15 @@ public class GureSistema {
 	// Probatzeko
 	public static void main(String[] args) {
 		GureSistema g = GureSistema.getGureSistema();
+		g.pertsonakAtera();
+		g.produktuenBalorazioak();
+		g.antzekotasunGuztiakKalkulatu();
+		g.produktuenIzenburuak();
+//		System.out.println(g.izenburuak.size());
+//		System.out.println(g.pertsonak.get(1).getBaloratuEzDituenak().size());
+//		System.out.println(g.pertsonak.get(1).getBereBalorazioak().size());
+		g.pertsonak.get(1).estimatuBaloratuEzDituenak();
+		g.pertsonak.get(1).inprimatu();
 	}
 	
 	

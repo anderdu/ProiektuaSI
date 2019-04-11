@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import eragiketak.EstimazioaKalkulatu;
 import eragiketak.GureSistema;
 
 import javax.swing.GroupLayout;
@@ -36,8 +37,8 @@ public class IEstimatu extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					GureSistema nGureSistema = null;
-					IEstimatu frame = new IEstimatu(nGureSistema);
+					EstimazioaKalkulatu estimazioa = null;
+					IEstimatu frame = new IEstimatu(estimazioa);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -49,7 +50,7 @@ public class IEstimatu extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public IEstimatu(GureSistema nGureSistema) {
+	public IEstimatu(EstimazioaKalkulatu estimazioa) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 500, 350);
 		contentPane = new JPanel();
@@ -77,8 +78,8 @@ public class IEstimatu extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				int erabiltzaileaId = Integer.parseInt(textField.getText());
 				int pelikulaId = Integer.parseInt(textField_1.getText());
-				String estimazioa = Float.toString(nGureSistema.estimatuBalorazioak(erabiltzaileaId, pelikulaId));
-				textField_2.setText(estimazioa);
+				String estimazio = Float.toString(estimazioa.estimatuBalorazioak(erabiltzaileaId, pelikulaId));
+				textField_2.setText(estimazio);
 				
 				
 			}

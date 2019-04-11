@@ -2,6 +2,7 @@ package datuak;
 
 import java.io.*;
 import java.util.*;
+import java.util.Map.Entry;
 
 public class KargaCSV implements DatuenKarga {
 	
@@ -119,6 +120,8 @@ public class KargaCSV implements DatuenKarga {
         String line = "";
         String cvsSplitBy = ",";
         Pertsona p;
+        
+        HashMap<Integer, String> produktuGuztiak = this.produktuenIzenburuak();
 
         try {
 
@@ -148,12 +151,16 @@ public class KargaCSV implements DatuenKarga {
                 if (!aurrekoUserId.equals(userId)) {
                 	p = new Pertsona(userId);
                 	// meter todos los productos en la lista de no valoradas de la persona nueva
+                	for(Entry<Integer, String> entry : produktuGuztiak.entrySet()) {
+						p.baloratuEzDuenaSartu(entry.getKey(), 0.0f);
+					}
                 	this.listaPertsonak.add(p);
                 	pos ++;
                 	aurrekoUserId = userId;
                 }
                 
                 this.listaPertsonak.get(pos).balorazioaSartu(produktuId, balorazio);
+                this.listaPertsonak.get(pos).getBaloratuEzDituenak().remove(produktuId);
 
             }
 

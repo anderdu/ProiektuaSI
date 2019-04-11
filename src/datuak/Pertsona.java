@@ -3,6 +3,8 @@ package datuak;
 import java.util.HashMap;
 import java.util.Map;
 
+import eragiketak.EstimazioaKalkulatu;
+
 public class Pertsona {
 	
 	private int id;
@@ -35,6 +37,16 @@ public class Pertsona {
 			System.out.println("	##############");
 		}
 		System.out.println("----------------------");
+		System.out.println("----------------------");
+		for(Map.Entry<Integer, Float> entry2 : baloratuEzDituenak.entrySet()) {
+		    Integer key = entry2.getKey();
+		    Float value = entry2.getValue();
+		    
+		    System.out.println("	##############");
+		    System.out.println("	Pelikula id: " + key);
+			System.out.println("	Pelikularen balorazioa: " + value);
+			System.out.println("	##############");
+		}
 	}
 	
 	public int getId() {
@@ -43,6 +55,17 @@ public class Pertsona {
 	
 	public HashMap<Integer, Float> getBereBalorazioak() {
 		return this.bereBalorazioak;
+	}
+	
+	public HashMap<Integer, Float> getBaloratuEzDituenak() {
+		return this.baloratuEzDituenak;
+	}
+	
+	public void estimatuBaloratuEzDituenak() {
+		EstimazioaKalkulatu estimazioa = EstimazioaKalkulatu.getEstimazioaKalkulatu();
+		for(Map.Entry<Integer, Float> entry : baloratuEzDituenak.entrySet()) {
+			baloratuEzDituenak.put(entry.getKey(), estimazioa.estimatuBalorazioak(this.id, entry.getKey()));
+		}
 	}
 
 }

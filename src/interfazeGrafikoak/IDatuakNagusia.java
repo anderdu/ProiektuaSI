@@ -12,6 +12,7 @@ import javax.swing.border.EmptyBorder;
 import datuak.DatuenKarga;
 import datuak.KargaCSV;
 import datuak.Pertsona;
+import eragiketak.EstimazioaKalkulatu;
 import eragiketak.GureSistema;
 
 import javax.swing.ImageIcon;
@@ -28,6 +29,7 @@ public class IDatuakNagusia extends JFrame {
 	private JPanel contentPane;
 	private GureSistema nGureSistema;
 	private DatuenKarga kargaInterfaze;
+	private EstimazioaKalkulatu estimazioa;
 	
 	private ImageIcon argazkia;
 
@@ -60,6 +62,7 @@ public class IDatuakNagusia extends JFrame {
 		contentPane.setLayout(sl_contentPane);
 		
 		nGureSistema = GureSistema.getGureSistema();
+		estimazioa = EstimazioaKalkulatu.getEstimazioaKalkulatu();
 		kargaInterfaze = new KargaCSV();
 		
 		getContentPane().setBackground(Color.CYAN);
@@ -127,7 +130,7 @@ public class IDatuakNagusia extends JFrame {
 				ArrayList<Pertsona> pertsonak = nGureSistema.pertsonakAtera();
 				nGureSistema.antzekotasunGuztiakKalkulatu();
 				dispose();
-				new IEstimatu(nGureSistema);
+				new IEstimatu(estimazioa);
 			}
 		});
 		contentPane.add(btnPelikulaEstimatu);
