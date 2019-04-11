@@ -7,14 +7,20 @@ public class Pertsona {
 	
 	private int id;
 	private HashMap<Integer, Float> bereBalorazioak;
+	private HashMap<Integer, Float> baloratuEzDituenak;
 	
 	public Pertsona(int pId) {
 		this.id = pId;
 		bereBalorazioak = new HashMap<Integer, Float>();
+		baloratuEzDituenak = new HashMap<Integer, Float>();
 	}
 	
 	public void balorazioaSartu(int pelikulaId, Float bal) {
 		bereBalorazioak.put(pelikulaId, bal);
+	}
+	
+	public void baloratuEzDuenaSartu(int pelikulaId, Float bal) {
+		baloratuEzDituenak.put(pelikulaId, bal);
 	}
 	
 	public void inprimatu() {

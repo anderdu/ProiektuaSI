@@ -108,10 +108,6 @@ public class GureSistema {
 		
 	}
 	
-	public Float estimatuBalorazioak(int idE, int idPelikula) {
-		return estimazio.estimatuBalorazioak(idE, idPelikula);
-	}
-	
 	// Probatzeko
 	public static void main(String[] args) {
 		GureSistema g = GureSistema.getGureSistema();

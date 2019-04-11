@@ -118,6 +118,7 @@ public class KargaCSV implements DatuenKarga {
 		BufferedReader br = null;
         String line = "";
         String cvsSplitBy = ",";
+        Pertsona p;
 
         try {
 
@@ -145,7 +146,9 @@ public class KargaCSV implements DatuenKarga {
                 balorazio = Float.parseFloat(lerroa[2]);
                 
                 if (!aurrekoUserId.equals(userId)) {
-                	this.listaPertsonak.add(new Pertsona(userId));
+                	p = new Pertsona(userId);
+                	// meter todos los productos en la lista de no valoradas de la persona nueva
+                	this.listaPertsonak.add(p);
                 	pos ++;
                 	aurrekoUserId = userId;
                 }
