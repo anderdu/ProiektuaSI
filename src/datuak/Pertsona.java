@@ -1,9 +1,11 @@
 package datuak;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 import eragiketak.EstimazioaKalkulatu;
+import eragiketak.GureSistema;
 
 public class Pertsona {
 	
@@ -66,6 +68,19 @@ public class Pertsona {
 		for(Map.Entry<Integer, Float> entry : baloratuEzDituenak.entrySet()) {
 			baloratuEzDituenak.put(entry.getKey(), estimazioa.estimatuBalorazioak(this.id, entry.getKey()));
 		}
+	}
+	
+	public ArrayList<String> emanEstimazioAltuenak() {
+		// baloratuEzDituenak listatik, 10 gehien balorazio dutenak bueltatu
+		// 10 gehienen produktuen id-ak edukita izenburuen HashMap-atik izenak hartu
+		
+		GureSistema gs = GureSistema.getGureSistema();
+		gs.produktuenIzenburuak();
+		
+		ArrayList<String> lista = new ArrayList<String>();
+		
+		
+		return lista;
 	}
 
 }

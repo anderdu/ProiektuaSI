@@ -34,8 +34,7 @@ public class EstimazioaKalkulatu {
 		
 		for (int i = 0; i < 30; i++) {
 			idAux = this.produktuEredua.get(idPelikula).get(i).getId();
-												// balorazioaBilatu(idE, idAux)??? --> mirarlo bien, yo creo que es asi (en la formula idAux es i, y idPelikula j)
-			batukari1= batukari1 + nGureSistema.balorazioaBilatu(idE, idPelikula) * antzekotasun.antzekotasunaKalkulatu(idAux, idPelikula, nGureSistema.getBalorazioak());
+			batukari1= batukari1 + nGureSistema.balorazioaBilatu(idE, idAux) * antzekotasun.antzekotasunaKalkulatu(idAux, idPelikula, nGureSistema.getBalorazioak());
 			batukari2= batukari2 + antzekotasun.antzekotasunaKalkulatu(idAux, idPelikula, nGureSistema.getBalorazioak());
 		}
 		
