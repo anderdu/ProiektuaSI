@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import eragiketak.EstimazioaKalkulatu;
+import eragiketak.ProdukturarekinEstimazioa;
 import eragiketak.GureSistema;
 
 public class Pertsona {
@@ -64,7 +64,7 @@ public class Pertsona {
 	}
 	
 	public void estimatuBaloratuEzDituenak() {
-		EstimazioaKalkulatu estimazioa = EstimazioaKalkulatu.getEstimazioaKalkulatu();
+		ProdukturarekinEstimazioa estimazioa = ProdukturarekinEstimazioa.getEstimazioaKalkulatu();
 		for(Map.Entry<Integer, Float> entry : baloratuEzDituenak.entrySet()) {
 			baloratuEzDituenak.put(entry.getKey(), estimazioa.estimatuBalorazioak(this.id, entry.getKey()));
 		}
@@ -75,12 +75,29 @@ public class Pertsona {
 		// 10 gehienen produktuen id-ak edukita izenburuen HashMap-atik izenak hartu
 		
 		GureSistema gs = GureSistema.getGureSistema();
-		gs.produktuenIzenburuak();
+		HashMap<Integer, String> izenburuak = gs.produktuenIzenburuak();
+		HashMap<Integer, Float> balEz = this.baloratuEzDituenak;
+		
 		
 		ArrayList<String> lista = new ArrayList<String>();
 		
-		
-		return lista;
+		Float max;
+		Integer key = 0;
+		Float balioa;
+        for(int i = 0; i < 10; i++) {
+            max = 0.0f;
+            for(Map.Entry<Integer, Float> entry : balEz.entrySet()) {
+                balioa = entry.getValue();
+                if (balioa > max){
+                    max = balioa;
+                    key = entry.getKey();
+                }
+            }
+            balEz.remove(key);
+            lista.add(izenburuak.get(key));
+        }
+        
+        return lista;
 	}
 
 }

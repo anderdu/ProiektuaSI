@@ -26,7 +26,7 @@ public class GureSistema {
 		izenburuak = new HashMap<Integer, String>();
 		pertsonak = new ArrayList<Pertsona>();
 		antzekotasun = new Kosinua();
-		estimazio = EstimazioaKalkulatu.getEstimazioaKalkulatu();
+		estimazio = ProdukturarekinEstimazioa.getEstimazioaKalkulatu();
 	}
 	
 	public static synchronized GureSistema getGureSistema() {
@@ -120,6 +120,7 @@ public class GureSistema {
 //		System.out.println(g.pertsonak.get(1).getBereBalorazioak().size());
 		g.pertsonak.get(1).estimatuBaloratuEzDituenak();
 		g.pertsonak.get(1).inprimatu();
+		System.out.println(g.pertsonak.get(1).emanEstimazioAltuenak());
 	}
 	
 	

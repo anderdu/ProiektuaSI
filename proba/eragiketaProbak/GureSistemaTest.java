@@ -6,18 +6,18 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import eragiketak.EstimazioaKalkulatu;
+import eragiketak.ProdukturarekinEstimazioa;
 import eragiketak.GureSistema;
 
 public class GureSistemaTest {
 	private static GureSistema nGureSistema=null;
-	private static EstimazioaKalkulatu estimazio = null;
+	private static ProdukturarekinEstimazioa estimazio = null;
 
 
 	@Before
 	public void setUp() throws Exception {
 		nGureSistema = GureSistema.getGureSistema();
-		estimazio = EstimazioaKalkulatu.getEstimazioaKalkulatu();
+		estimazio = ProdukturarekinEstimazioa.getEstimazioaKalkulatu();
 
 		nGureSistema.produktuenBalorazioak();
 		nGureSistema.pertsonakAtera();

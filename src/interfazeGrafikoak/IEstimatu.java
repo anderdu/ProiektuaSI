@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import eragiketak.EstimazioaKalkulatu;
+import eragiketak.ProdukturarekinEstimazioa;
 import eragiketak.GureSistema;
 
 import javax.swing.GroupLayout;
@@ -37,7 +37,7 @@ public class IEstimatu extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					EstimazioaKalkulatu estimazioa = null;
+					ProdukturarekinEstimazioa estimazioa = null;
 					IEstimatu frame = new IEstimatu(estimazioa);
 					frame.setVisible(true);
 				} catch (Exception e) {
@@ -50,7 +50,7 @@ public class IEstimatu extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public IEstimatu(EstimazioaKalkulatu estimazioa) {
+	public IEstimatu(ProdukturarekinEstimazioa estimazioa) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 500, 350);
 		contentPane = new JPanel();
