@@ -23,6 +23,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.awt.event.ActionEvent;
+import java.awt.Toolkit;
 
 public class IDatuakNagusia extends JFrame {
 
@@ -76,9 +77,8 @@ public class IDatuakNagusia extends JFrame {
 //		super.paint(g);
 		
 		JButton btnBalorazioak = new JButton("Balorazioak");
-		sl_contentPane.putConstraint(SpringLayout.NORTH, btnBalorazioak, 80, SpringLayout.NORTH, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.WEST, btnBalorazioak, 29, SpringLayout.WEST, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.SOUTH, btnBalorazioak, -126, SpringLayout.SOUTH, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.NORTH, btnBalorazioak, 149, SpringLayout.NORTH, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.WEST, btnBalorazioak, 0, SpringLayout.WEST, contentPane);
 		btnBalorazioak.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				HashMap<Integer, ArrayList<Float>> produkBal = nGureSistema.produktuenBalorazioak();
@@ -87,24 +87,22 @@ public class IDatuakNagusia extends JFrame {
 				dispose();
 			}
 		});
+		
+		JLabel lblNewLabel = new JLabel("");
+		sl_contentPane.putConstraint(SpringLayout.NORTH, lblNewLabel, 5, SpringLayout.NORTH, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.WEST, lblNewLabel, 56, SpringLayout.WEST, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.SOUTH, lblNewLabel, -6, SpringLayout.NORTH, btnBalorazioak);
+		sl_contentPane.putConstraint(SpringLayout.EAST, lblNewLabel, 330, SpringLayout.WEST, contentPane);
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\-\\git\\ProiektuaSI\\WhatsApp Image 2019-04-11 at 10.57.23.jpeg"));
+		lblNewLabel.setBounds(90, 90, 430, 280);
+		contentPane.add(lblNewLabel);
 		contentPane.add(btnBalorazioak);
 		
-		JLabel label = new JLabel("");
-		sl_contentPane.putConstraint(SpringLayout.NORTH, label, 125, SpringLayout.NORTH, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.WEST, label, 92, SpringLayout.WEST, contentPane);
-		contentPane.add(label);
-		
-		JLabel label_1 = new JLabel("");
-		sl_contentPane.putConstraint(SpringLayout.NORTH, label_1, 125, SpringLayout.NORTH, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.WEST, label_1, 92, SpringLayout.WEST, contentPane);
-		contentPane.add(label_1);
-		
 		JButton btnIzenburuak = new JButton("Izenburuak");
-		sl_contentPane.putConstraint(SpringLayout.EAST, btnBalorazioak, -38, SpringLayout.WEST, btnIzenburuak);
-		sl_contentPane.putConstraint(SpringLayout.WEST, btnIzenburuak, 228, SpringLayout.WEST, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.EAST, btnIzenburuak, -56, SpringLayout.EAST, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.NORTH, btnIzenburuak, 80, SpringLayout.NORTH, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.SOUTH, btnIzenburuak, 0, SpringLayout.SOUTH, label);
+		sl_contentPane.putConstraint(SpringLayout.NORTH, btnIzenburuak, 149, SpringLayout.NORTH, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.EAST, btnBalorazioak, -91, SpringLayout.WEST, btnIzenburuak);
+		sl_contentPane.putConstraint(SpringLayout.EAST, btnIzenburuak, -41, SpringLayout.EAST, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.WEST, btnIzenburuak, 242, SpringLayout.WEST, contentPane);
 		btnIzenburuak.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 
@@ -121,9 +119,10 @@ public class IDatuakNagusia extends JFrame {
 		contentPane.add(btnIzenburuak);
 		
 		JButton btnPelikulaEstimatu = new JButton("Pelikula estimatu!");
-		sl_contentPane.putConstraint(SpringLayout.NORTH, btnPelikulaEstimatu, 35, SpringLayout.SOUTH, btnBalorazioak);
-		sl_contentPane.putConstraint(SpringLayout.WEST, btnPelikulaEstimatu, 153, SpringLayout.WEST, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.SOUTH, btnPelikulaEstimatu, 64, SpringLayout.SOUTH, btnBalorazioak);
+		sl_contentPane.putConstraint(SpringLayout.SOUTH, btnIzenburuak, -6, SpringLayout.NORTH, btnPelikulaEstimatu);
+		sl_contentPane.putConstraint(SpringLayout.SOUTH, btnBalorazioak, -6, SpringLayout.NORTH, btnPelikulaEstimatu);
+		sl_contentPane.putConstraint(SpringLayout.NORTH, btnPelikulaEstimatu, 200, SpringLayout.NORTH, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.SOUTH, btnPelikulaEstimatu, -22, SpringLayout.SOUTH, contentPane);
 		btnPelikulaEstimatu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				HashMap<Integer, ArrayList<Float>> produkBal = nGureSistema.produktuenBalorazioak();
@@ -136,6 +135,7 @@ public class IDatuakNagusia extends JFrame {
 		contentPane.add(btnPelikulaEstimatu);
 		
 		JButton btnAtera = new JButton("Itxi");
+		sl_contentPane.putConstraint(SpringLayout.EAST, btnPelikulaEstimatu, -81, SpringLayout.WEST, btnAtera);
 		btnAtera.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				dispose();
