@@ -89,10 +89,10 @@ public class IDatuakNagusia extends JFrame {
 		});
 		
 		JLabel lblNewLabel = new JLabel("");
-		sl_contentPane.putConstraint(SpringLayout.NORTH, lblNewLabel, 5, SpringLayout.NORTH, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.WEST, lblNewLabel, 56, SpringLayout.WEST, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.SOUTH, lblNewLabel, -6, SpringLayout.NORTH, btnBalorazioak);
-		sl_contentPane.putConstraint(SpringLayout.EAST, lblNewLabel, 330, SpringLayout.WEST, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.NORTH, lblNewLabel, 118, SpringLayout.NORTH, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.WEST, lblNewLabel, 147, SpringLayout.WEST, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.SOUTH, lblNewLabel, -1, SpringLayout.NORTH, btnBalorazioak);
+		sl_contentPane.putConstraint(SpringLayout.EAST, lblNewLabel, -89, SpringLayout.EAST, contentPane);
 		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\-\\git\\ProiektuaSI\\WhatsApp Image 2019-04-11 at 10.57.23.jpeg"));
 		lblNewLabel.setBounds(90, 90, 430, 280);
 		contentPane.add(lblNewLabel);
@@ -144,5 +144,16 @@ public class IDatuakNagusia extends JFrame {
 		sl_contentPane.putConstraint(SpringLayout.SOUTH, btnAtera, -10, SpringLayout.SOUTH, contentPane);
 		sl_contentPane.putConstraint(SpringLayout.EAST, btnAtera, -22, SpringLayout.EAST, contentPane);
 		contentPane.add(btnAtera);
+		
+		JButton btnNewButton = new JButton("10 pelikula zuretzat!");
+		sl_contentPane.putConstraint(SpringLayout.WEST, btnNewButton, 0, SpringLayout.WEST, lblNewLabel);
+		sl_contentPane.putConstraint(SpringLayout.SOUTH, btnNewButton, -39, SpringLayout.NORTH, lblNewLabel);
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				dispose();
+				new IHamarPelikula();
+			}
+		});
+		contentPane.add(btnNewButton);
 	}
 }

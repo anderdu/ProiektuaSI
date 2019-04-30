@@ -29,6 +29,10 @@ public class GureSistema {
 		estimazio = ProdukturarekinEstimazioa.getEstimazioaKalkulatu();
 	}
 	
+	public  ArrayList<Pertsona> getPertsonak(){
+		return this.pertsonak;
+	}
+	
 	public static synchronized GureSistema getGureSistema() {
 		if(GureSistema.nGureSistema == null)
 			GureSistema.nGureSistema = new GureSistema();
