@@ -13,6 +13,8 @@ import eragiketak.GureSistema;
 import java.awt.GridLayout;
 import java.awt.GridBagLayout;
 import java.awt.CardLayout;
+import java.awt.Desktop;
+
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.RowSpec;
@@ -23,6 +25,9 @@ import javax.swing.SpringLayout;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.awt.event.ActionEvent;
 
 public class IZerrendatu extends JFrame {
@@ -126,9 +131,20 @@ public class IZerrendatu extends JFrame {
 		labelak.add(lblP_8);
 		labelak.add(lblP_9);
 		
+		g = GureSistema.getGureSistema();
+		g.pertsonakAtera();
+		g.produktuenBalorazioak();
+		g.produktuenIzenburuak();
+		g.antzekotasunGuztiakKalkulatu();
+		ArrayList<Pertsona> pertsonak = g.getPertsonak();
+		pertsonak.get(erab).estimatuBaloratuEzDituenak();
+		pertsonak.get(erab).inprimatu();
+		ArrayList<String> izenburuak = pertsonak.get(erab).emanEstimazioAltuenak();
+		
 		JButton btnB = new JButton("Trailerra");
 		btnB.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				estekaIreki(izenburuak.get(0));
 			}
 		});
 		sl_contentPane.putConstraint(SpringLayout.NORTH, lblP, 4, SpringLayout.NORTH, btnB);
@@ -140,6 +156,7 @@ public class IZerrendatu extends JFrame {
 		JButton btnB_1 = new JButton("Trailerra");
 		btnB_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				estekaIreki(izenburuak.get(1));
 			}
 		});
 		sl_contentPane.putConstraint(SpringLayout.NORTH, btnB_1, 13, SpringLayout.SOUTH, btnB);
@@ -152,6 +169,7 @@ public class IZerrendatu extends JFrame {
 		sl_contentPane.putConstraint(SpringLayout.EAST, btnB_2, 0, SpringLayout.EAST, btnB);
 		btnB_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				estekaIreki(izenburuak.get(2));
 			}
 		});
 		contentPane.add(btnB_2);
@@ -159,6 +177,7 @@ public class IZerrendatu extends JFrame {
 		JButton btnNewButton = new JButton("Trailerra");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				estekaIreki(izenburuak.get(3));
 			}
 		});
 		sl_contentPane.putConstraint(SpringLayout.NORTH, btnNewButton, -4, SpringLayout.NORTH, lblP_3);
@@ -166,53 +185,90 @@ public class IZerrendatu extends JFrame {
 		contentPane.add(btnNewButton);
 		
 		JButton btnTrailerra = new JButton("Trailerra");
+		btnTrailerra.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				estekaIreki(izenburuak.get(4));
+			}
+		});
 		sl_contentPane.putConstraint(SpringLayout.NORTH, btnTrailerra, -4, SpringLayout.NORTH, lblP_4);
 		sl_contentPane.putConstraint(SpringLayout.EAST, btnTrailerra, 0, SpringLayout.EAST, btnB);
 		contentPane.add(btnTrailerra);
 		
 		JButton btnTrailerra_1 = new JButton("Trailerra");
+		btnTrailerra_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				estekaIreki(izenburuak.get(5));
+			}
+		});
 		sl_contentPane.putConstraint(SpringLayout.WEST, btnTrailerra_1, 0, SpringLayout.WEST, btnB);
 		sl_contentPane.putConstraint(SpringLayout.SOUTH, btnTrailerra_1, -208, SpringLayout.SOUTH, contentPane);
 		contentPane.add(btnTrailerra_1);
 		
 		JButton btnTrailerra_2 = new JButton("Trailerra");
+		btnTrailerra_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				estekaIreki(izenburuak.get(6));
+			}
+		});
 		sl_contentPane.putConstraint(SpringLayout.NORTH, btnTrailerra_2, 269, SpringLayout.NORTH, contentPane);
 		sl_contentPane.putConstraint(SpringLayout.NORTH, lblP_6, 4, SpringLayout.NORTH, btnTrailerra_2);
 		sl_contentPane.putConstraint(SpringLayout.WEST, btnTrailerra_2, 0, SpringLayout.WEST, btnB);
 		contentPane.add(btnTrailerra_2);
 		
 		JButton btnTrailerra_3 = new JButton("Trailerra");
+		btnTrailerra_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				estekaIreki(izenburuak.get(7));
+			}
+		});
 		sl_contentPane.putConstraint(SpringLayout.NORTH, btnTrailerra_3, 21, SpringLayout.SOUTH, btnTrailerra_2);
 		sl_contentPane.putConstraint(SpringLayout.NORTH, lblP_7, 4, SpringLayout.NORTH, btnTrailerra_3);
 		sl_contentPane.putConstraint(SpringLayout.WEST, btnTrailerra_3, 0, SpringLayout.WEST, btnB);
 		contentPane.add(btnTrailerra_3);
 		
 		JButton btnTrailerra_4 = new JButton("Trailerra");
+		btnTrailerra_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				estekaIreki(izenburuak.get(8));
+			}
+		});
 		sl_contentPane.putConstraint(SpringLayout.NORTH, btnTrailerra_4, 23, SpringLayout.SOUTH, btnTrailerra_3);
 		sl_contentPane.putConstraint(SpringLayout.NORTH, lblP_8, 4, SpringLayout.NORTH, btnTrailerra_4);
 		sl_contentPane.putConstraint(SpringLayout.WEST, btnTrailerra_4, 0, SpringLayout.WEST, btnB);
 		contentPane.add(btnTrailerra_4);
 		
 		JButton btnTrailerra_5 = new JButton("Trailerra");
+		btnTrailerra_5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				estekaIreki(izenburuak.get(9));
+			}
+		});
 		sl_contentPane.putConstraint(SpringLayout.NORTH, btnTrailerra_5, 20, SpringLayout.SOUTH, btnTrailerra_4);
 		sl_contentPane.putConstraint(SpringLayout.NORTH, lblP_9, 4, SpringLayout.NORTH, btnTrailerra_5);
 		sl_contentPane.putConstraint(SpringLayout.WEST, btnTrailerra_5, 0, SpringLayout.WEST, btnB);
 		contentPane.add(btnTrailerra_5);
 		
-		g = GureSistema.getGureSistema();
-		g.pertsonakAtera();
-		g.produktuenBalorazioak();
-		g.produktuenIzenburuak();
-		g.antzekotasunGuztiakKalkulatu();
-		ArrayList<Pertsona> pertsonak = g.getPertsonak();
-		pertsonak.get(erab).estimatuBaloratuEzDituenak();
-		pertsonak.get(erab).inprimatu();
-		ArrayList<String> izenburuak = pertsonak.get(erab).emanEstimazioAltuenak();
+		
+		
 		for (int i = 0; i < izenburuak.size(); i++) {
 			String izena = izenburuak.get(i);
 			JLabel labela = labelak.get(i);
 			labela.setText(izena);
 		}
 		setVisible(true);
+	}
+	
+	public void estekaIreki(String pLink){
+		System.out.println(pLink);
+		Character c = '"';
+		String link = pLink.replace(" ", "+").replace(":", "%3A").replace("(", "%28").replace(")","%29").replace("'", "%27").replace(Character.toString(c),"");
+		String url = "https://www.youtube.com/results?search_query=" + link + "+trailer";
+		try {
+			Desktop.getDesktop().browse(new URI(url));
+		} catch (IOException e){
+			e.printStackTrace();
+		}catch (URISyntaxException e) {
+			e.printStackTrace();
+		}
 	}
 }
