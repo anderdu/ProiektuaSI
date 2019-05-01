@@ -59,8 +59,6 @@ public class IDatuakNagusia extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		SpringLayout sl_contentPane = new SpringLayout();
-		contentPane.setLayout(sl_contentPane);
 		
 		nGureSistema = GureSistema.getGureSistema();
 		estimazioa = ProdukturarekinEstimazioa.getEstimazioaKalkulatu();
@@ -77,8 +75,8 @@ public class IDatuakNagusia extends JFrame {
 //		super.paint(g);
 		
 		JButton btnBalorazioak = new JButton("Balorazioak");
-		sl_contentPane.putConstraint(SpringLayout.NORTH, btnBalorazioak, 149, SpringLayout.NORTH, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.WEST, btnBalorazioak, 0, SpringLayout.WEST, contentPane);
+		btnBalorazioak.setBounds(24, 112, 151, 45);
+		btnBalorazioak.setVisible(true);
 		btnBalorazioak.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				HashMap<Integer, ArrayList<Float>> produkBal = nGureSistema.produktuenBalorazioak();
@@ -87,22 +85,11 @@ public class IDatuakNagusia extends JFrame {
 				dispose();
 			}
 		});
-		
-		JLabel lblNewLabel = new JLabel("");
-		sl_contentPane.putConstraint(SpringLayout.NORTH, lblNewLabel, 118, SpringLayout.NORTH, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.WEST, lblNewLabel, 147, SpringLayout.WEST, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.SOUTH, lblNewLabel, -1, SpringLayout.NORTH, btnBalorazioak);
-		sl_contentPane.putConstraint(SpringLayout.EAST, lblNewLabel, -89, SpringLayout.EAST, contentPane);
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\-\\git\\ProiektuaSI\\WhatsApp Image 2019-04-11 at 10.57.23.jpeg"));
-		lblNewLabel.setBounds(90, 90, 430, 280);
-		contentPane.add(lblNewLabel);
+		contentPane.setLayout(null);
 		contentPane.add(btnBalorazioak);
 		
 		JButton btnIzenburuak = new JButton("Izenburuak");
-		sl_contentPane.putConstraint(SpringLayout.NORTH, btnIzenburuak, 149, SpringLayout.NORTH, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.EAST, btnBalorazioak, -91, SpringLayout.WEST, btnIzenburuak);
-		sl_contentPane.putConstraint(SpringLayout.EAST, btnIzenburuak, -41, SpringLayout.EAST, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.WEST, btnIzenburuak, 242, SpringLayout.WEST, contentPane);
+		btnIzenburuak.setBounds(253, 139, 141, 45);
 		btnIzenburuak.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 
@@ -119,10 +106,7 @@ public class IDatuakNagusia extends JFrame {
 		contentPane.add(btnIzenburuak);
 		
 		JButton btnPelikulaEstimatu = new JButton("Pelikula estimatu!");
-		sl_contentPane.putConstraint(SpringLayout.SOUTH, btnIzenburuak, -6, SpringLayout.NORTH, btnPelikulaEstimatu);
-		sl_contentPane.putConstraint(SpringLayout.SOUTH, btnBalorazioak, -6, SpringLayout.NORTH, btnPelikulaEstimatu);
-		sl_contentPane.putConstraint(SpringLayout.NORTH, btnPelikulaEstimatu, 200, SpringLayout.NORTH, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.SOUTH, btnPelikulaEstimatu, -22, SpringLayout.SOUTH, contentPane);
+		btnPelikulaEstimatu.setBounds(125, 220, 115, 29);
 		btnPelikulaEstimatu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				HashMap<Integer, ArrayList<Float>> produkBal = nGureSistema.produktuenBalorazioak();
@@ -135,19 +119,16 @@ public class IDatuakNagusia extends JFrame {
 		contentPane.add(btnPelikulaEstimatu);
 		
 		JButton btnAtera = new JButton("Itxi");
-		sl_contentPane.putConstraint(SpringLayout.EAST, btnPelikulaEstimatu, -81, SpringLayout.WEST, btnAtera);
+		btnAtera.setBounds(358, 223, 49, 23);
 		btnAtera.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				dispose();
 			}
 		});
-		sl_contentPane.putConstraint(SpringLayout.SOUTH, btnAtera, -10, SpringLayout.SOUTH, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.EAST, btnAtera, -22, SpringLayout.EAST, contentPane);
 		contentPane.add(btnAtera);
 		
 		JButton btnNewButton = new JButton("10 pelikula zuretzat!");
-		sl_contentPane.putConstraint(SpringLayout.WEST, btnNewButton, 0, SpringLayout.WEST, lblNewLabel);
-		sl_contentPane.putConstraint(SpringLayout.SOUTH, btnNewButton, -39, SpringLayout.NORTH, lblNewLabel);
+		btnNewButton.setBounds(148, 80, 129, 23);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				dispose();
@@ -155,5 +136,11 @@ public class IDatuakNagusia extends JFrame {
 			}
 		});
 		contentPane.add(btnNewButton);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\-\\git\\ProiektuaSI\\WhatsApp Image 2019-04-11 at 10.57.23.jpeg"));
+		//		getContentPane().setComponentZOrder(lblNewLabel, 1); //Debajo de la anterior 
+				lblNewLabel.setBounds(10, 139, 392, 110);
+				contentPane.add(lblNewLabel);
 	}
 }
