@@ -122,9 +122,10 @@ public class GureSistema {
 //		System.out.println(g.izenburuak.size());
 //		System.out.println(g.pertsonak.get(1).getBaloratuEzDituenak().size());
 //		System.out.println(g.pertsonak.get(1).getBereBalorazioak().size());
-		g.pertsonak.get(1).estimatuBaloratuEzDituenak();
-		g.pertsonak.get(1).inprimatu();
-		System.out.println(g.pertsonak.get(1).emanEstimazioAltuenak());
+//		g.pertsonak.get(1).estimatuBaloratuEzDituenak();
+//		g.pertsonak.get(1).inprimatu();
+//		System.out.println(g.pertsonak.get(1).emanEstimazioAltuenak());
+		System.out.println(g.pertsonak.size());
 	}
 	
 	
