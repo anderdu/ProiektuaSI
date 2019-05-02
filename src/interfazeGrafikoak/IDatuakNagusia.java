@@ -106,7 +106,7 @@ public class IDatuakNagusia extends JFrame {
 		contentPane.add(btnIzenburuak);
 		
 		JButton btnPelikulaEstimatu = new JButton("Pelikula estimatu!");
-		btnPelikulaEstimatu.setBounds(125, 220, 115, 29);
+		btnPelikulaEstimatu.setBounds(78, 220, 151, 29);
 		btnPelikulaEstimatu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				HashMap<Integer, ArrayList<Float>> produkBal = nGureSistema.produktuenBalorazioak();
@@ -119,7 +119,7 @@ public class IDatuakNagusia extends JFrame {
 		contentPane.add(btnPelikulaEstimatu);
 		
 		JButton btnAtera = new JButton("Itxi");
-		btnAtera.setBounds(358, 223, 49, 23);
+		btnAtera.setBounds(336, 223, 71, 26);
 		btnAtera.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				dispose();
@@ -136,11 +136,20 @@ public class IDatuakNagusia extends JFrame {
 			}
 		});
 		contentPane.add(btnNewButton);
-		
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\-\\git\\ProiektuaSI\\WhatsApp Image 2019-04-11 at 10.57.23.jpeg"));
-		//		getContentPane().setComponentZOrder(lblNewLabel, 1); //Debajo de la anterior 
-				lblNewLabel.setBounds(0, 11, 434, 250);
-				contentPane.add(lblNewLabel);
+				
+				JButton btnPertsonaAntzekoenak = new JButton("Pertsona antzekoenak");
+				btnPertsonaAntzekoenak.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent arg0) {
+						//llamar a pertsona antzekoenak o a la interfaz suya
+					}
+				});
+				btnPertsonaAntzekoenak.setBounds(253, 28, 141, 29);
+				contentPane.add(btnPertsonaAntzekoenak);
+				
+				JLabel lblNewLabel = new JLabel("");
+				lblNewLabel.setIcon(new ImageIcon("C:\\Users\\-\\git\\ProiektuaSI\\WhatsApp Image 2019-04-11 at 10.57.23.jpeg"));
+				//		getContentPane().setComponentZOrder(lblNewLabel, 1); //Debajo de la anterior 
+						lblNewLabel.setBounds(0, 11, 434, 250);
+						contentPane.add(lblNewLabel);
 	}
 }
