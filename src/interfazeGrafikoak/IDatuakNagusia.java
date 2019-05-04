@@ -13,6 +13,7 @@ import datuak.DatuenKarga;
 import datuak.KargaCSV;
 import datuak.Pertsona;
 import eragiketak.ProdukturarekinEstimazioa;
+import eragiketak.AntzekoPertsonak;
 import eragiketak.GureSistema;
 
 import javax.swing.ImageIcon;
@@ -55,7 +56,7 @@ public class IDatuakNagusia extends JFrame {
 	 */
 	public IDatuakNagusia() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 550, 380);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -75,7 +76,7 @@ public class IDatuakNagusia extends JFrame {
 //		super.paint(g);
 		
 		JButton btnBalorazioak = new JButton("Balorazioak");
-		btnBalorazioak.setBounds(24, 112, 151, 45);
+		btnBalorazioak.setBounds(46, 128, 170, 56);
 		btnBalorazioak.setVisible(true);
 		btnBalorazioak.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -89,7 +90,7 @@ public class IDatuakNagusia extends JFrame {
 		contentPane.add(btnBalorazioak);
 		
 		JButton btnIzenburuak = new JButton("Izenburuak");
-		btnIzenburuak.setBounds(253, 139, 141, 45);
+		btnIzenburuak.setBounds(297, 128, 170, 56);
 		btnIzenburuak.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 
@@ -106,7 +107,7 @@ public class IDatuakNagusia extends JFrame {
 		contentPane.add(btnIzenburuak);
 		
 		JButton btnPelikulaEstimatu = new JButton("Pelikula estimatu!");
-		btnPelikulaEstimatu.setBounds(78, 220, 151, 29);
+		btnPelikulaEstimatu.setBounds(181, 221, 151, 29);
 		btnPelikulaEstimatu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				HashMap<Integer, ArrayList<Float>> produkBal = nGureSistema.produktuenBalorazioak();
@@ -119,7 +120,7 @@ public class IDatuakNagusia extends JFrame {
 		contentPane.add(btnPelikulaEstimatu);
 		
 		JButton btnAtera = new JButton("Itxi");
-		btnAtera.setBounds(336, 223, 71, 26);
+		btnAtera.setBounds(431, 291, 71, 26);
 		btnAtera.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				dispose();
@@ -127,8 +128,19 @@ public class IDatuakNagusia extends JFrame {
 		});
 		contentPane.add(btnAtera);
 		
+		JButton btnPertsonaAntzekoenak = new JButton("Pertsona antzekoenak");
+		btnPertsonaAntzekoenak.setBounds(294, 60, 173, 34);
+		btnPertsonaAntzekoenak.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				//llamar a pertsona antzekoenak o a la interfaz suya
+				dispose();
+				new IAntPertsonaIdSartu();
+			}
+		});
+		contentPane.add(btnPertsonaAntzekoenak);
+		
 		JButton btnNewButton = new JButton("10 pelikula zuretzat!");
-		btnNewButton.setBounds(148, 80, 129, 23);
+		btnNewButton.setBounds(46, 58, 170, 34);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				dispose();
@@ -136,20 +148,12 @@ public class IDatuakNagusia extends JFrame {
 			}
 		});
 		contentPane.add(btnNewButton);
-				
-				JButton btnPertsonaAntzekoenak = new JButton("Pertsona antzekoenak");
-				btnPertsonaAntzekoenak.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent arg0) {
-						//llamar a pertsona antzekoenak o a la interfaz suya
-					}
-				});
-				btnPertsonaAntzekoenak.setBounds(253, 28, 141, 29);
-				contentPane.add(btnPertsonaAntzekoenak);
-				
-				JLabel lblNewLabel = new JLabel("");
-				lblNewLabel.setIcon(new ImageIcon("C:\\Users\\-\\git\\ProiektuaSI\\WhatsApp Image 2019-04-11 at 10.57.23.jpeg"));
-				//		getContentPane().setComponentZOrder(lblNewLabel, 1); //Debajo de la anterior 
-						lblNewLabel.setBounds(0, 11, 434, 250);
-						contentPane.add(lblNewLabel);
+		
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\-\\git\\ProiektuaSI\\WhatsApp Image 2019-04-11 at 10.57.23.jpeg"));
+		//		getContentPane().setComponentZOrder(lblNewLabel, 1); //Debajo de la anterior 
+				lblNewLabel.setBounds(0, 0, 534, 341);
+				contentPane.add(lblNewLabel);
 	}
 }
