@@ -47,6 +47,7 @@ public class IAntPertsonaIdSartu extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		setVisible(true);
 		
 		textField = new JTextField();
 		textField.setBounds(155, 92, 102, 20);
@@ -58,21 +59,26 @@ public class IAntPertsonaIdSartu extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				String erabiltzaileID = textField.getText();
 				int eralID = Integer.parseInt(erabiltzaileID);
+				
+				GureSistema.getGureSistema().pertsonakAtera();
+				GureSistema.getGureSistema().produktuenBalorazioak();
+				GureSistema.getGureSistema().produktuenIzenburuak();
 				AntzekoPertsonak ap = new AntzekoPertsonak();
-				GureSistema gs = GureSistema.getGureSistema();
-				gs.pertsonakAtera();
-				gs.produktuenBalorazioak();
-				gs.produktuenIzenburuak();
-				Integer[] lista = ap.pertsonaAntzekoenakEman(eralID);
-				new IPertsonaAntzekoak(lista);
-//				dispose();
+				
+				Integer[] lista = new Integer[5];
+				lista = ap.pertsonaAntzekoenakEman(eralID);
+				for (int j = 0; j < lista.length; j++) {
+					System.out.println(lista[j]);
+				}
+				dispose();
+				new IPertsonaAntzekoak(ap.pertsonaAntzekoenakEman(eralID));
 			}
 		});
 		btnZurePertsonaAntzekoenak.setBounds(92, 141, 235, 33);
 		contentPane.add(btnZurePertsonaAntzekoenak);
 		
 		JLabel lblZureErabiltzaileIda = new JLabel("Zure erabiltzaile id-a sar ezazu:");
-		lblZureErabiltzaileIda.setBounds(136, 67, 191, 14);
+		lblZureErabiltzaileIda.setBounds(128, 67, 281, 14);
 		contentPane.add(lblZureErabiltzaileIda);
 	}
 }

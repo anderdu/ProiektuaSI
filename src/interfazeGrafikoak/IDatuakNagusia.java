@@ -151,7 +151,7 @@ public class IDatuakNagusia extends JFrame {
 		
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\-\\git\\ProiektuaSI\\WhatsApp Image 2019-04-11 at 10.57.23.jpeg"));
+		lblNewLabel.setIcon(new ImageIcon("atzealdeak/fondoNagusi.jpeg"));
 		//		getContentPane().setComponentZOrder(lblNewLabel, 1); //Debajo de la anterior 
 				lblNewLabel.setBounds(0, 0, 534, 341);
 				contentPane.add(lblNewLabel);

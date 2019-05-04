@@ -39,6 +39,7 @@ public class IPertsonaAntzekoak extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		setVisible(true);
 		
 		JLabel lblZureAntzekoGustuak = new JLabel("ZURE ANTZEKO GUSTUAK DITUZTEN PERTSONAK");
 		lblZureAntzekoGustuak.setBounds(76, 21, 264, 55);
@@ -84,13 +85,13 @@ public class IPertsonaAntzekoak extends JFrame {
 		lblEr_4.setBounds(103, 218, 206, 14);
 		contentPane.add(lblEr_4);
 		
-		
-		lblEr.setText(listaErab[0].toString());
-		lblEr_1.setText(listaErab[1].toString());
-		lblEr_2.setText(listaErab[2].toString());
-		lblEr_3.setText(listaErab[3].toString());
-		lblEr_4.setText(listaErab[4].toString());
-		
+		if (listaErab != null) {
+			lblEr.setText(listaErab[0].toString());
+			lblEr_1.setText(listaErab[1].toString());
+			lblEr_2.setText(listaErab[2].toString());
+			lblEr_3.setText(listaErab[3].toString());
+			lblEr_4.setText(listaErab[4].toString());
+		}
 	}
 
 }
