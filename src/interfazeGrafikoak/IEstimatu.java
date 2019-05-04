@@ -11,6 +11,7 @@ import eragiketak.ProdukturarekinEstimazioa;
 import eragiketak.GureSistema;
 
 import javax.swing.GroupLayout;
+import javax.swing.ImageIcon;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -28,6 +29,7 @@ public class IEstimatu extends JFrame {
 	private JButton btnNewButton;
 	private JTextField textField_2;
 	private JButton btnItxi;
+	private JLabel lblNewLabel;
 	
 
 	/**
@@ -58,22 +60,28 @@ public class IEstimatu extends JFrame {
 		setContentPane(contentPane);
 		setVisible(true);
 		JLabel lblErabiltzailearenIdentifikatzailea = new JLabel("Erabiltzailearen identifikatzailea:");
+		lblErabiltzailearenIdentifikatzailea.setBounds(15, 29, 154, 14);
 		
 		textField = new JTextField();
+		textField.setBounds(44, 54, 86, 20);
 		textField.setColumns(10);
 		
 		getContentPane().setBackground(Color.CYAN);
 		
 		
 		JLabel lblPelikularenIdentifikatzailea = new JLabel("Pelikularen identifikatzailea:");
+		lblPelikularenIdentifikatzailea.setBounds(15, 92, 132, 14);
 		
 		textField_1 = new JTextField();
+		textField_1.setBounds(45, 117, 86, 20);
 		textField_1.setColumns(10);
 		
 		textField_2 = new JTextField();
+		textField_2.setBounds(284, 166, 86, 20);
 		textField_2.setColumns(10);
 		
 		btnEstimatu = new JButton("Estimatu!");
+		btnEstimatu.setBounds(45, 165, 102, 21);
 		btnEstimatu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int erabiltzaileaId = Integer.parseInt(textField.getText());
@@ -85,6 +93,7 @@ public class IEstimatu extends JFrame {
 			}
 		});
 		btnNewButton = new JButton("Atzera");
+		btnNewButton.setBounds(45, 206, 102, 23);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -94,64 +103,25 @@ public class IEstimatu extends JFrame {
 		});
 		
 		btnItxi = new JButton("Itxi");
+		btnItxi.setBounds(391, 277, 83, 23);
 		btnItxi.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 			}
 		});
+		contentPane.setLayout(null);
+		contentPane.add(btnEstimatu);
+		contentPane.add(textField_2);
+		contentPane.add(textField_1);
+		contentPane.add(btnNewButton);
+		contentPane.add(lblErabiltzailearenIdentifikatzailea);
+		contentPane.add(textField);
+		contentPane.add(lblPelikularenIdentifikatzailea);
+		contentPane.add(btnItxi);
 		
-		GroupLayout gl_contentPane = new GroupLayout(contentPane);
-		gl_contentPane.setHorizontalGroup(
-			gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGap(40)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addComponent(btnEstimatu)
-							.addPreferredGap(ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
-							.addComponent(textField_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-							.addGap(109))
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-								.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(btnNewButton))
-							.addContainerGap(298, Short.MAX_VALUE))))
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addContainerGap()
-							.addComponent(lblErabiltzailearenIdentifikatzailea))
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(39)
-							.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addContainerGap()
-							.addComponent(lblPelikularenIdentifikatzailea)))
-					.addContainerGap(260, Short.MAX_VALUE))
-				.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
-					.addContainerGap(335, Short.MAX_VALUE)
-					.addComponent(btnItxi))
-		);
-		gl_contentPane.setVerticalGroup(
-			gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGap(24)
-					.addComponent(lblErabiltzailearenIdentifikatzailea)
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addGap(18)
-					.addComponent(lblPelikularenIdentifikatzailea)
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addGap(28)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(btnEstimatu)
-						.addComponent(textField_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addGap(18)
-					.addComponent(btnNewButton)
-					.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-					.addComponent(btnItxi))
-		);
-		contentPane.setLayout(gl_contentPane);
+		lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon("atzealdeak/film-real-and-clapboard-abstract.jpg"));
+		lblNewLabel.setBounds(0, 0, 494, 311);
+		contentPane.add(lblNewLabel);
 	}
 }

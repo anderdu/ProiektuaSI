@@ -1,8 +1,10 @@
 package interfazeGrafikoak;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.EventQueue;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -42,48 +44,64 @@ public class IPertsonaAntzekoak extends JFrame {
 		setVisible(true);
 		
 		JLabel lblZureAntzekoGustuak = new JLabel("ZURE ANTZEKO GUSTUAK DITUZTEN PERTSONAK");
-		lblZureAntzekoGustuak.setBounds(76, 21, 264, 55);
+		lblZureAntzekoGustuak.setForeground(Color.WHITE);
+		lblZureAntzekoGustuak.setBounds(43, 21, 325, 55);
 		contentPane.add(lblZureAntzekoGustuak);
 		
 		JLabel label = new JLabel("1.");
-		label.setBounds(63, 118, 46, 14);
+		label.setBounds(62, 98, 46, 14);
+		label.setForeground(Color.WHITE);
 		contentPane.add(label);
 		
 		JLabel label_1 = new JLabel("2.");
-		label_1.setBounds(63, 143, 46, 14);
+		label_1.setBounds(62, 123, 46, 14);
+		label_1.setForeground(Color.WHITE);
 		contentPane.add(label_1);
 		
 		JLabel label_2 = new JLabel("3.");
-		label_2.setBounds(63, 168, 46, 14);
+		label_2.setBounds(62, 148, 46, 14);
+		label_2.setForeground(Color.WHITE);
 		contentPane.add(label_2);
 		
 		JLabel label_3 = new JLabel("4.");
-		label_3.setBounds(63, 193, 46, 14);
+		label_3.setBounds(62, 173, 46, 14);
+		label_3.setForeground(Color.WHITE);
 		contentPane.add(label_3);
 		
 		JLabel label_4 = new JLabel("5.");
-		label_4.setBounds(63, 218, 46, 14);
+		label_4.setBounds(62, 198, 46, 14);
+		label_4.setForeground(Color.WHITE);
 		contentPane.add(label_4);
 		
 		JLabel lblEr = new JLabel("er1");
-		lblEr.setBounds(103, 118, 206, 14);
+		lblEr.setBounds(102, 98, 206, 14);
+		lblEr.setForeground(Color.WHITE);
 		contentPane.add(lblEr);
 		
 		JLabel lblEr_1 = new JLabel("er2");
-		lblEr_1.setBounds(103, 143, 206, 14);
+		lblEr_1.setBounds(102, 123, 206, 14);
+		lblEr_1.setForeground(Color.WHITE);
 		contentPane.add(lblEr_1);
 		
 		JLabel lblEr_2 = new JLabel("er3");
-		lblEr_2.setBounds(103, 168, 206, 14);
+		lblEr_2.setBounds(102, 148, 206, 14);
+		lblEr_2.setForeground(Color.WHITE);
 		contentPane.add(lblEr_2);
 		
 		JLabel lblEr_3 = new JLabel("er4");
-		lblEr_3.setBounds(103, 193, 206, 14);
+		lblEr_3.setBounds(102, 173, 206, 14);
+		lblEr_3.setForeground(Color.WHITE);
 		contentPane.add(lblEr_3);
 		
 		JLabel lblEr_4 = new JLabel("er5");
-		lblEr_4.setBounds(103, 218, 206, 14);
+		lblEr_4.setBounds(102, 198, 206, 14);
+		lblEr_4.setForeground(Color.WHITE);
 		contentPane.add(lblEr_4);
+		
+		JLabel label_5 = new JLabel("");
+		label_5.setBounds(0, -7, 434, 283);
+		label_5.setIcon(new ImageIcon("atzealdeak/curtain-2757815_960_720.png"));
+		contentPane.add(label_5);
 		
 		if (listaErab != null) {
 			lblEr.setText(listaErab[0].toString());

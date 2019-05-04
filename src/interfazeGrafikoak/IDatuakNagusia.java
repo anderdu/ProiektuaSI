@@ -104,7 +104,6 @@ public class IDatuakNagusia extends JFrame {
 
 			}
 		});
-		contentPane.add(btnIzenburuak);
 		
 		JButton btnPelikulaEstimatu = new JButton("Pelikula estimatu!");
 		btnPelikulaEstimatu.setBounds(181, 221, 151, 29);
@@ -118,6 +117,7 @@ public class IDatuakNagusia extends JFrame {
 			}
 		});
 		contentPane.add(btnPelikulaEstimatu);
+		contentPane.add(btnIzenburuak);
 		
 		JButton btnAtera = new JButton("Itxi");
 		btnAtera.setBounds(431, 291, 71, 26);
@@ -153,7 +153,7 @@ public class IDatuakNagusia extends JFrame {
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon("atzealdeak/fondoNagusi.jpeg"));
 		//		getContentPane().setComponentZOrder(lblNewLabel, 1); //Debajo de la anterior 
-				lblNewLabel.setBounds(0, 0, 534, 341);
-				contentPane.add(lblNewLabel);
+		lblNewLabel.setBounds(0, 0, 534, 341);
+		contentPane.add(lblNewLabel);
 	}
 }
