@@ -81,13 +81,14 @@ public class IDatuakBalorazioak extends JFrame {
 		scrollPane.setViewportView(table);
 		
 		JButton btnAtzera = new JButton("Atzera");
-		sl_contentPane.putConstraint(SpringLayout.NORTH, btnAtzera, 17, SpringLayout.SOUTH, scrollPane);
-		sl_contentPane.putConstraint(SpringLayout.EAST, btnAtzera, -173, SpringLayout.EAST, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.WEST, btnAtzera, 28, SpringLayout.WEST, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.SOUTH, btnAtzera, -10, SpringLayout.SOUTH, contentPane);
 		btnAtzera.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				dispose();
 				IDatuakNagusia frame = new IDatuakNagusia();
-				frame.setVisible(true);
+				frame.setVisible(true);  // POR QUE NO PUTO FUNCIONAS JODER
+				
 			}
 		});
 		contentPane.add(btnAtzera);

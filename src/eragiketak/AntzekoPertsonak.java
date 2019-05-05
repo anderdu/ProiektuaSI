@@ -15,12 +15,12 @@ public class AntzekoPertsonak {
 	private HashMap<Integer, ArrayList<Float>> pertsonenBalorazioak;
 	private Integer[] antzekoenak;
 	
-	public AntzekoPertsonak() {
+	public AntzekoPertsonak(int erabID) {
 		// TODO Auto-generated constructor stub
 		antzekotasun = new Kosinua();
 		pertsonak = GureSistema.getGureSistema().getPertsonak();
 		pertsonenBalorazioak = new HashMap<Integer, ArrayList<Float>>();
-		antzekoenak = new Integer[5];
+		antzekoenak = pertsonaAntzekoak(erabID);
 	}
 	
 	private void pertsonenBalJarri() {
@@ -38,18 +38,54 @@ public class AntzekoPertsonak {
 		}
 	}
 	
-	private void pertsonaAntzekoakKalkulatu(int idPertsona) {
+	public Integer[] getAntzekoenak() {
+		return antzekoenak;
+	}
+	
+//	private void pertsonaAntzekoakKalkulatu(int idPertsona) {
+//		int id,cont = 0;
+//		int pos = 0;
+//		Float ant;
+//		Float[] listaF = new Float[5];
+//		for (Pertsona p : pertsonak) {
+//			id = p.getId();
+//			if (id != idPertsona) {
+//				ant = antzekotasun.antzekotasunaKalkulatu(idPertsona, id, pertsonenBalorazioak);
+//				if (cont < 5) {
+//					antzekoenak[cont] = id;
+//					listaF[cont] = ant;
+//					cont ++;
+//				} else {
+//					pos = 0;
+//					Float txiki = listaF[0];
+//					for (int i = 1; i < listaF.length; i++) {
+//						if (txiki.compareTo(listaF[i]) == 1) {
+//							txiki = listaF[i];
+//							pos = i;
+//						}
+//					}
+//					if (ant.compareTo(txiki) == 1) {
+//						listaF[pos] = ant;
+//						antzekoenak[pos] = id;
+//					}
+//				}
+//			}
+//		}
+//	}
+//	
+	private Integer[] pertsonaAntzekoak(int idPertsona) {
 		int id,cont = 0;
 		int pos = 0;
 		Float ant;
 		Float[] listaF = new Float[5];
+		Integer[] lis = new Integer[5];
+		pertsonenBalJarri();
 		for (Pertsona p : pertsonak) {
 			id = p.getId();
 			if (id != idPertsona) {
 				ant = antzekotasun.antzekotasunaKalkulatu(idPertsona, id, pertsonenBalorazioak);
-//				System.out.println("Antzekotasun: " + ant);
 				if (cont < 5) {
-					antzekoenak[cont] = id;
+					lis[cont] = id;
 					listaF[cont] = ant;
 					cont ++;
 				} else {
@@ -61,31 +97,80 @@ public class AntzekoPertsonak {
 							pos = i;
 						}
 					}
-//					System.out.println(pos);
 					if (ant.compareTo(txiki) == 1) {
 						listaF[pos] = ant;
-						antzekoenak[pos] = id;
+						lis[pos] = id;
 					}
 				}
 			}
 		}
+		return lis;
 	}
 
 	
-	public Integer[] pertsonaAntzekoenakEman(int idPertsona) {
-		pertsonenBalJarri();
-		pertsonaAntzekoakKalkulatu(idPertsona);
-		return this.antzekoenak;
-	}
+//	public Integer[] pertsonaAntzekoenakEman(int idPertsona) {
+//		pertsonenBalJarri();
+//		pertsonaAntzekoakKalkulatu(idPertsona);
+//		return this.antzekoenak;
+//	}
 	
 	public static void main(String[] args) {
+//		GureSistema.getGureSistema().pertsonakAtera();
+//		GureSistema.getGureSistema().produktuenBalorazioak();
+//		GureSistema.getGureSistema().produktuenIzenburuak();
+//		AntzekoPertsonak a = new AntzekoPertsonak();
+//		Integer[] i = a.pertsonaAntzekoenakEman(2);
+//		System.out.println("Erabiltzaile = 2");
+//		for (int j = 0; j < i.length; j++) {
+//			System.out.println(i[j]);
+//		}
+//		GureSistema.getGureSistema().pertsonakAtera();
+//		GureSistema.getGureSistema().produktuenBalorazioak();
+//		GureSistema.getGureSistema().produktuenIzenburuak();
+//		AntzekoPertsonak an = new AntzekoPertsonak();
+//		Integer[] k = an.pertsonaAntzekoenakEman(1);
+//		System.out.println("Erabiltzaile = 1");
+//		for (int j = 0; j < k.length; j++) {
+//			System.out.println(k[j]);
+//		}
+//		GureSistema.getGureSistema().pertsonakAtera();
+//		GureSistema.getGureSistema().produktuenBalorazioak();
+//		GureSistema.getGureSistema().produktuenIzenburuak();
+//		AntzekoPertsonak al = new AntzekoPertsonak();
+//		Integer[] li = al.pertsonaAntzekoenakEman(2);
+//		System.out.println("Erabiltzaile = 2");
+//		for (int j = 0; j < li.length; j++) {
+//			System.out.println(li[j]);
+//		}
+//		GureSistema.getGureSistema().pertsonakAtera();
+//		GureSistema.getGureSistema().produktuenBalorazioak();
+//		GureSistema.getGureSistema().produktuenIzenburuak();
+//		AntzekoPertsonak ah = new AntzekoPertsonak();
+//		Integer[] b = ah.pertsonaAntzekoenakEman(9);
+//		System.out.println("Erabiltzaile = 9");
+//		for (int j = 0; j < b.length; j++) {
+//			System.out.println(b[j]);
+//		}
 		GureSistema.getGureSistema().pertsonakAtera();
 		GureSistema.getGureSistema().produktuenBalorazioak();
 		GureSistema.getGureSistema().produktuenIzenburuak();
-		AntzekoPertsonak a = new AntzekoPertsonak();
-		Integer[] i = a.pertsonaAntzekoenakEman(2);
-		for (int j = 0; j < i.length; j++) {
-			System.out.println(i[j]);
+		AntzekoPertsonak a = new AntzekoPertsonak(1);
+		System.out.println("Erabiltzaile = 1");
+		for (int j = 0; j < a.antzekoenak.length; j++) {
+			System.out.println(a.antzekoenak[j]);
 		}
+		
+		AntzekoPertsonak an = new AntzekoPertsonak(2);
+		System.out.println("Erabiltzaile = 2");
+		for (int j = 0; j < an.antzekoenak.length; j++) {
+			System.out.println(an.antzekoenak[j]);
+		}
+		
+		AntzekoPertsonak ap = new AntzekoPertsonak(2);
+		System.out.println("Erabiltzaile = 2");
+		for (int j = 0; j < ap.antzekoenak.length; j++) {
+			System.out.println(ap.antzekoenak[j]);
+		}
+		
 	}
 }

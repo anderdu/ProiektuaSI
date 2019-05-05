@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import eragiketak.ProdukturarekinEstimazioa;
+import eragiketak.AntzekoPertsonak;
 import eragiketak.GureSistema;
 
 public class Pertsona {
@@ -12,11 +13,16 @@ public class Pertsona {
 	private int id;
 	private HashMap<Integer, Float> bereBalorazioak;
 	private HashMap<Integer, Float> baloratuEzDituenak;
+	private Integer[] ap;
 	
 	public Pertsona(int pId) {
 		this.id = pId;
 		bereBalorazioak = new HashMap<Integer, Float>();
 		baloratuEzDituenak = new HashMap<Integer, Float>();
+		if(ap == null) {
+			AntzekoPertsonak a = new AntzekoPertsonak(id);
+			ap = a.getAntzekoenak();
+		}
 	}
 	
 	public void balorazioaSartu(int pelikulaId, Float bal) {
@@ -98,6 +104,32 @@ public class Pertsona {
         }
         
         return lista;
+	}
+	
+	public Integer[] getAntzekoPertsonak() {
+		return this.ap;
+	}
+	public static void main(String[] args) {
+		GureSistema.getGureSistema().pertsonakAtera();
+		GureSistema.getGureSistema().produktuenBalorazioak();
+		GureSistema.getGureSistema().produktuenIzenburuak();
+		Pertsona p = new Pertsona(2);
+		System.out.println("Erabiltzaile = 2");
+		for (int j = 0; j < p.ap.length; j++) {
+			System.out.println(p.ap[j]);
+		}
+		
+		Pertsona pe = new Pertsona(3);
+		System.out.println("Erabiltzaile = 3");
+		for (int j = 0; j < pe.ap.length; j++) {
+			System.out.println(pe.ap[j]);
+		}
+		
+		Pertsona per = new Pertsona(2);
+		System.out.println("Erabiltzaile = 2");
+		for (int j = 0; j < per.ap.length; j++) {
+			System.out.println(per.ap[j]);
+		}
 	}
 
 }

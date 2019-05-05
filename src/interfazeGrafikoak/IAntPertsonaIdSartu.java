@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import datuak.Pertsona;
 import eragiketak.AntzekoPertsonak;
 import eragiketak.GureSistema;
 
@@ -57,25 +58,46 @@ public class IAntPertsonaIdSartu extends JFrame {
 		JButton btnZurePertsonaAntzekoenak = new JButton("Zure Pertsona Antzekoenak");
 		btnZurePertsonaAntzekoenak.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String erabiltzaileID = textField.getText();
-				int eralID = Integer.parseInt(erabiltzaileID);
 				
 				GureSistema.getGureSistema().pertsonakAtera();
 				GureSistema.getGureSistema().produktuenBalorazioak();
 				GureSistema.getGureSistema().produktuenIzenburuak();
-				AntzekoPertsonak ap = new AntzekoPertsonak();
 				
-				Integer[] lista = new Integer[5];
-				lista = ap.pertsonaAntzekoenakEman(eralID);
+				String erabiltzaileID = textField.getText();
+				int eralID = Integer.parseInt(erabiltzaileID);
+				
+				Pertsona p = new Pertsona(eralID);
+				
+				Integer[] lista = p.getAntzekoPertsonak();
 				for (int j = 0; j < lista.length; j++) {
 					System.out.println(lista[j]);
 				}
 				dispose();
-				new IPertsonaAntzekoak(ap.pertsonaAntzekoenakEman(eralID));
+				new IPertsonaAntzekoak(p.getAntzekoPertsonak());
 			}
 		});
 		btnZurePertsonaAntzekoenak.setBounds(92, 141, 235, 33);
 		contentPane.add(btnZurePertsonaAntzekoenak);
+		
+		JButton btnNewButton = new JButton("Itxi");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				dispose();
+			}
+		});
+		btnNewButton.setBounds(320, 228, 89, 23);
+		contentPane.add(btnNewButton);
+		
+		JButton btnAtzera = new JButton("Atzera");
+		btnAtzera.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				IDatuakNagusia frame = new IDatuakNagusia();
+				frame.setVisible(true);
+			}
+		});
+		btnAtzera.setBounds(206, 228, 89, 23);
+		contentPane.add(btnAtzera);
 		
 		JLabel lblZureErabiltzaileIda = new JLabel("Zure erabiltzaile id-a sar ezazu:");
 		lblZureErabiltzaileIda.setBounds(128, 67, 281, 14);

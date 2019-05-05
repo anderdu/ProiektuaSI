@@ -64,6 +64,9 @@ public class IDatuakNagusia extends JFrame {
 		nGureSistema = GureSistema.getGureSistema();
 		estimazioa = ProdukturarekinEstimazioa.getEstimazioaKalkulatu();
 		kargaInterfaze = new KargaCSV();
+		ArrayList<Pertsona> pa = nGureSistema.pertsonakAtera();
+		HashMap<Integer, ArrayList<Float>> bal = nGureSistema.produktuenBalorazioak();
+		HashMap<Integer, String> iz = nGureSistema.produktuenIzenburuak();
 		
 		getContentPane().setBackground(Color.CYAN);
 		
@@ -81,9 +84,9 @@ public class IDatuakNagusia extends JFrame {
 		btnBalorazioak.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				HashMap<Integer, ArrayList<Float>> produkBal = nGureSistema.produktuenBalorazioak();
-				new IDatuakBalorazioak(produkBal);
-				
 				dispose();
+				new IDatuakBalorazioak(bal);
+				
 			}
 		});
 		contentPane.setLayout(null);

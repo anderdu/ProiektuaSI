@@ -3,12 +3,15 @@ package interfazeGrafikoak;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JButton;
 
 public class IPertsonaAntzekoak extends JFrame {
 
@@ -97,6 +100,26 @@ public class IPertsonaAntzekoak extends JFrame {
 		lblEr_4.setBounds(102, 198, 206, 14);
 		lblEr_4.setForeground(Color.WHITE);
 		contentPane.add(lblEr_4);
+		
+		JButton btnAtzera = new JButton("Atzera");
+		btnAtzera.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				IAntPertsonaIdSartu frame = new IAntPertsonaIdSartu();
+				frame.setVisible(true);
+			}
+		});
+		btnAtzera.setBounds(210, 228, 89, 23);
+		contentPane.add(btnAtzera);
+		
+		JButton btnItxi = new JButton("Itxi");
+		btnItxi.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
+		btnItxi.setBounds(316, 228, 89, 23);
+		contentPane.add(btnItxi);
 		
 		JLabel label_5 = new JLabel("");
 		label_5.setBounds(0, -7, 434, 283);
