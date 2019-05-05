@@ -73,7 +73,7 @@ public class AntzekoPertsonak {
 //		}
 //	}
 //	
-	private Integer[] pertsonaAntzekoak(int idPertsona) {
+	public Integer[] pertsonaAntzekoak(int idPertsona) {
 		int id,cont = 0;
 		int pos = 0;
 		Float ant;
