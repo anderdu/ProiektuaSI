@@ -20,6 +20,7 @@ public class AntzekoPertsonakTest {
 	@After
 	public void tearDown() throws Exception {
 		antzeko = null;
+		
 	}
 
 	@Test

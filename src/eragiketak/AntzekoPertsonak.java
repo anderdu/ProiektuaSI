@@ -41,7 +41,7 @@ public class AntzekoPertsonak {
 	public Integer[] getAntzekoenak() {
 		return antzekoenak;
 	}
-	
+
 	public Integer[] pertsonaAntzekoak(int idPertsona) {
 		int id,cont = 0;
 		int pos = 0;
