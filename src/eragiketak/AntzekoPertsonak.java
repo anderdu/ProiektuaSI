@@ -42,38 +42,7 @@ public class AntzekoPertsonak {
 		return antzekoenak;
 	}
 	
-//	private void pertsonaAntzekoakKalkulatu(int idPertsona) {
-//		int id,cont = 0;
-//		int pos = 0;
-//		Float ant;
-//		Float[] listaF = new Float[5];
-//		for (Pertsona p : pertsonak) {
-//			id = p.getId();
-//			if (id != idPertsona) {
-//				ant = antzekotasun.antzekotasunaKalkulatu(idPertsona, id, pertsonenBalorazioak);
-//				if (cont < 5) {
-//					antzekoenak[cont] = id;
-//					listaF[cont] = ant;
-//					cont ++;
-//				} else {
-//					pos = 0;
-//					Float txiki = listaF[0];
-//					for (int i = 1; i < listaF.length; i++) {
-//						if (txiki.compareTo(listaF[i]) == 1) {
-//							txiki = listaF[i];
-//							pos = i;
-//						}
-//					}
-//					if (ant.compareTo(txiki) == 1) {
-//						listaF[pos] = ant;
-//						antzekoenak[pos] = id;
-//					}
-//				}
-//			}
-//		}
-//	}
-//	
-	private Integer[] pertsonaAntzekoak(int idPertsona) {
+	public Integer[] pertsonaAntzekoak(int idPertsona) {
 		int id,cont = 0;
 		int pos = 0;
 		Float ant;
@@ -107,13 +76,6 @@ public class AntzekoPertsonak {
 		return lis;
 	}
 
-	
-//	public Integer[] pertsonaAntzekoenakEman(int idPertsona) {
-//		pertsonenBalJarri();
-//		pertsonaAntzekoakKalkulatu(idPertsona);
-//		return this.antzekoenak;
-//	}
-	
 	public static void main(String[] args) {
 //		GureSistema.getGureSistema().pertsonakAtera();
 //		GureSistema.getGureSistema().produktuenBalorazioak();

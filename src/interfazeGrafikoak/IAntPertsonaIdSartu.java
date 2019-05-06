@@ -1,6 +1,7 @@
 package interfazeGrafikoak;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -12,6 +13,7 @@ import eragiketak.AntzekoPertsonak;
 import eragiketak.GureSistema;
 
 import javax.swing.JTextField;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import java.awt.event.ActionListener;
@@ -99,8 +101,16 @@ public class IAntPertsonaIdSartu extends JFrame {
 		btnAtzera.setBounds(206, 228, 89, 23);
 		contentPane.add(btnAtzera);
 		
-		JLabel lblZureErabiltzaileIda = new JLabel("Zure erabiltzaile id-a sar ezazu:");
-		lblZureErabiltzaileIda.setBounds(128, 67, 281, 14);
+		JLabel lblZureErabiltzaileIda = new JLabel(" Zure erabiltzaile id-a sar ezazu:");
+		lblZureErabiltzaileIda.setBackground(Color.BLACK);
+		lblZureErabiltzaileIda.setOpaque(true);
+		lblZureErabiltzaileIda.setForeground(Color.WHITE);
+		lblZureErabiltzaileIda.setBounds(121, 61, 182, 20);
 		contentPane.add(lblZureErabiltzaileIda);
+		
+		JLabel label = new JLabel("");
+		label.setIcon(new ImageIcon("atzealdeak/cinema-background-filmstrip-reel-popcorn-icon-flat-design-208928.jpg"));
+		label.setBounds(0, 0, 434, 273);
+		contentPane.add(label);
 	}
 }

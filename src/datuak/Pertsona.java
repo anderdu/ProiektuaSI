@@ -109,6 +109,7 @@ public class Pertsona {
 	public Integer[] getAntzekoPertsonak() {
 		return this.ap;
 	}
+	
 	public static void main(String[] args) {
 		GureSistema.getGureSistema().pertsonakAtera();
 		GureSistema.getGureSistema().produktuenBalorazioak();

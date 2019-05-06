@@ -81,7 +81,7 @@ public class IDatuakBalorazioak extends JFrame {
 		scrollPane.setViewportView(table);
 		
 		JButton btnAtzera = new JButton("Atzera");
-		sl_contentPane.putConstraint(SpringLayout.WEST, btnAtzera, 28, SpringLayout.WEST, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.WEST, btnAtzera, 0, SpringLayout.WEST, scrollPane);
 		sl_contentPane.putConstraint(SpringLayout.SOUTH, btnAtzera, -10, SpringLayout.SOUTH, contentPane);
 		btnAtzera.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -94,8 +94,8 @@ public class IDatuakBalorazioak extends JFrame {
 		contentPane.add(btnAtzera);
 		
 		JButton btnItxi = new JButton("Itxi");
-		sl_contentPane.putConstraint(SpringLayout.SOUTH, btnItxi, 0, SpringLayout.SOUTH, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.EAST, btnItxi, -10, SpringLayout.EAST, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.NORTH, btnItxi, 0, SpringLayout.NORTH, btnAtzera);
+		sl_contentPane.putConstraint(SpringLayout.EAST, btnItxi, 0, SpringLayout.EAST, scrollPane);
 		btnItxi.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				dispose();

@@ -20,6 +20,7 @@ import java.awt.FlowLayout;
 import javax.swing.SpringLayout;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 public class IHamarPelikula extends JFrame {
@@ -53,24 +54,45 @@ public class IHamarPelikula extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		SpringLayout sl_contentPane = new SpringLayout();
-		contentPane.setLayout(sl_contentPane);
+		contentPane.setLayout(null);
 		
 		textField = new JTextField();
-		sl_contentPane.putConstraint(SpringLayout.NORTH, textField, 63, SpringLayout.NORTH, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.WEST, textField, 145, SpringLayout.WEST, contentPane);
+		textField.setBounds(155, 74, 86, 20);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
 		JLabel lblErabiltzailearenIdentifikatzailea = new JLabel("Erabiltzailearen identifikatzailea:");
-		sl_contentPane.putConstraint(SpringLayout.WEST, lblErabiltzailearenIdentifikatzailea, 108, SpringLayout.WEST, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.SOUTH, lblErabiltzailearenIdentifikatzailea, -19, SpringLayout.NORTH, textField);
+		lblErabiltzailearenIdentifikatzailea.setBounds(108, 35, 187, 14);
 		contentPane.add(lblErabiltzailearenIdentifikatzailea);
 		
 		JButton btnZerrendatu = new JButton("Zerrendatu");
-		sl_contentPane.putConstraint(SpringLayout.NORTH, btnZerrendatu, 46, SpringLayout.SOUTH, textField);
-		sl_contentPane.putConstraint(SpringLayout.WEST, btnZerrendatu, 0, SpringLayout.WEST, textField);
+		btnZerrendatu.setBounds(144, 134, 105, 23);
 		contentPane.add(btnZerrendatu);
+		
+		JButton btnItxi = new JButton("Itxi");
+		btnItxi.setBounds(361, 224, 58, 23);
+		btnItxi.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				dispose();
+			}
+		});
+		contentPane.add(btnItxi);
+		
+		JButton btnAtzera = new JButton("Atzera");
+		btnAtzera.setBounds(266, 224, 75, 23);
+		btnAtzera.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				IDatuakNagusia frame = new IDatuakNagusia();
+				frame.setVisible(true);
+			}
+		});
+		contentPane.add(btnAtzera);
+		
+		JLabel label = new JLabel("");
+		label.setIcon(new ImageIcon("atzealdeak/recorte.PNG"));
+		label.setBounds(0, 0, 434, 262);
+		contentPane.add(label);
 		setVisible(true);
 		
 		btnZerrendatu.addActionListener(new ActionListener() {

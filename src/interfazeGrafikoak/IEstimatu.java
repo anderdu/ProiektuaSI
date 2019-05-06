@@ -2,6 +2,7 @@ package interfazeGrafikoak;
 
 import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Font;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -60,7 +61,7 @@ public class IEstimatu extends JFrame {
 		setContentPane(contentPane);
 		setVisible(true);
 		JLabel lblErabiltzailearenIdentifikatzailea = new JLabel("Erabiltzailearen identifikatzailea:");
-		lblErabiltzailearenIdentifikatzailea.setBounds(15, 29, 154, 14);
+		lblErabiltzailearenIdentifikatzailea.setBounds(15, 29, 190, 14);
 		
 		textField = new JTextField();
 		textField.setBounds(44, 54, 86, 20);
@@ -70,7 +71,7 @@ public class IEstimatu extends JFrame {
 		
 		
 		JLabel lblPelikularenIdentifikatzailea = new JLabel("Pelikularen identifikatzailea:");
-		lblPelikularenIdentifikatzailea.setBounds(15, 92, 132, 14);
+		lblPelikularenIdentifikatzailea.setBounds(15, 92, 190, 14);
 		
 		textField_1 = new JTextField();
 		textField_1.setBounds(45, 117, 86, 20);
@@ -79,6 +80,15 @@ public class IEstimatu extends JFrame {
 		textField_2 = new JTextField();
 		textField_2.setBounds(284, 166, 86, 20);
 		textField_2.setColumns(10);
+		textField_2.setVisible(false);
+		
+		
+		JLabel lblEmaitza = new JLabel("Emaitza:");
+		lblEmaitza.setFont(new Font("Arial", Font.BOLD, 12));
+		lblEmaitza.setForeground(Color.WHITE);
+		lblEmaitza.setBounds(301, 141, 69, 14);
+		contentPane.add(lblEmaitza);
+		lblEmaitza.setVisible(false);
 		
 		btnEstimatu = new JButton("Estimatu!");
 		btnEstimatu.setBounds(45, 165, 102, 21);
@@ -87,13 +97,19 @@ public class IEstimatu extends JFrame {
 				int erabiltzaileaId = Integer.parseInt(textField.getText());
 				int pelikulaId = Integer.parseInt(textField_1.getText());
 				String estimazio = Float.toString(estimazioa.estimatuBalorazioak(erabiltzaileaId, pelikulaId));
-				textField_2.setText(estimazio);
+				textField_2.setVisible(true);
+				lblEmaitza.setVisible(true);
+				if(estimazio.equals(null))
+					textField_2.setText("Datuak txarto");
+				else
+					textField_2.setText(estimazio);
+				
 				
 				
 			}
 		});
 		btnNewButton = new JButton("Atzera");
-		btnNewButton.setBounds(45, 206, 102, 23);
+		btnNewButton.setBounds(257, 277, 102, 23);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -118,10 +134,11 @@ public class IEstimatu extends JFrame {
 		contentPane.add(textField);
 		contentPane.add(lblPelikularenIdentifikatzailea);
 		contentPane.add(btnItxi);
+	
 		
 		lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon("atzealdeak/film-real-and-clapboard-abstract.jpg"));
-		lblNewLabel.setBounds(0, 0, 494, 311);
+		lblNewLabel.setBounds(0, 0, 494, 323);
 		contentPane.add(lblNewLabel);
 	}
 }

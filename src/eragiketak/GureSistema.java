@@ -40,17 +40,20 @@ public class GureSistema {
 	}
 	
 	public HashMap<Integer, ArrayList<Float>> produktuenBalorazioak() {
-		this.balorazioak = karga.produktuenBalorazioak();
+		if (this.balorazioak.isEmpty())
+			this.balorazioak = karga.produktuenBalorazioak();
 		return this.balorazioak;
 	}
 	
 	public HashMap<Integer, String> produktuenIzenburuak() {
-		this.izenburuak = karga.produktuenIzenburuak();
+		if(this.izenburuak.isEmpty())
+			this.izenburuak = karga.produktuenIzenburuak();
 		return this.izenburuak;
 	}
 	
 	public ArrayList<Pertsona> pertsonakAtera() {
-		this.pertsonak = karga.pertsonakAtera();
+		if(this.pertsonak.isEmpty())
+			this.pertsonak = karga.pertsonakAtera();
 		return this.pertsonak;
 	}
 	
@@ -68,12 +71,10 @@ public class GureSistema {
 		
 		for(Entry<Integer, ArrayList<Float>> entry : this.balorazioak.entrySet()) {
 		    key = entry.getKey();
-//		    System.out.println(key);
 		    
 			for(Entry<Integer, ArrayList<Float>> entry2 : this.balorazioak.entrySet()) {
 				key2 = entry2.getKey(); 
 				if(key2 != key) {
-//					System.out.println(key + "-ren eta " + key2 + "-ren arteko antzekotasuna");
 					ant = antzekotasun.antzekotasunaKalkulatu(key, key2, this.balorazioak);
 					produk = new ProduktuInfo(key2, ant);
 					

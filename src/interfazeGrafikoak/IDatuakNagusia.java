@@ -64,9 +64,6 @@ public class IDatuakNagusia extends JFrame {
 		nGureSistema = GureSistema.getGureSistema();
 		estimazioa = ProdukturarekinEstimazioa.getEstimazioaKalkulatu();
 		kargaInterfaze = new KargaCSV();
-		ArrayList<Pertsona> pa = nGureSistema.pertsonakAtera();
-		HashMap<Integer, ArrayList<Float>> bal = nGureSistema.produktuenBalorazioak();
-		HashMap<Integer, String> iz = nGureSistema.produktuenIzenburuak();
 		
 		getContentPane().setBackground(Color.CYAN);
 		
@@ -85,7 +82,7 @@ public class IDatuakNagusia extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				HashMap<Integer, ArrayList<Float>> produkBal = nGureSistema.produktuenBalorazioak();
 				dispose();
-				new IDatuakBalorazioak(bal);
+				new IDatuakBalorazioak(produkBal);
 				
 			}
 		});
@@ -156,7 +153,7 @@ public class IDatuakNagusia extends JFrame {
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon("atzealdeak/fondoNagusi.jpeg"));
 		//		getContentPane().setComponentZOrder(lblNewLabel, 1); //Debajo de la anterior 
-		lblNewLabel.setBounds(0, 0, 534, 341);
+		lblNewLabel.setBounds(0, 0, 534, 354);
 		contentPane.add(lblNewLabel);
 	}
 }

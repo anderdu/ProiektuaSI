@@ -13,6 +13,7 @@ import eragiketak.GureSistema;
 import java.awt.GridLayout;
 import java.awt.GridBagLayout;
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.awt.Desktop;
 
 import com.jgoodies.forms.layout.FormLayout;
@@ -20,6 +21,7 @@ import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.RowSpec;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.GroupLayout;
+import javax.swing.ImageIcon;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.SpringLayout;
 import javax.swing.JLabel;
@@ -60,62 +62,77 @@ public class IZerrendatu extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		SpringLayout sl_contentPane = new SpringLayout();
-		contentPane.setLayout(sl_contentPane);
+		contentPane.setLayout(null);
 		
 		
 		JLabel lblP = new JLabel("p1");
-		sl_contentPane.putConstraint(SpringLayout.EAST, lblP, -324, SpringLayout.EAST, contentPane);
+		lblP.setBackground(Color.WHITE);
+		lblP.setOpaque(true);
+		lblP.setForeground(Color.BLACK);
+		lblP.setBounds(126, 15, 437, 14);
 		contentPane.add(lblP);
 		
 		JLabel lblP_1 = new JLabel("p2");
-		sl_contentPane.putConstraint(SpringLayout.NORTH, lblP_1, 18, SpringLayout.SOUTH, lblP);
-		sl_contentPane.putConstraint(SpringLayout.WEST, lblP_1, 0, SpringLayout.WEST, lblP);
-		sl_contentPane.putConstraint(SpringLayout.EAST, lblP_1, -263, SpringLayout.EAST, contentPane);
+		lblP_1.setBackground(Color.WHITE);
+		lblP_1.setOpaque(true);
+		lblP_1.setForeground(Color.BLACK);
+		lblP_1.setBounds(126, 55, 437, 14);
 		contentPane.add(lblP_1);
 		
 		JLabel lblP_2 = new JLabel("p3");
-		sl_contentPane.putConstraint(SpringLayout.NORTH, lblP_2, 87, SpringLayout.NORTH, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.EAST, lblP_2, -408, SpringLayout.EAST, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.SOUTH, lblP_1, -19, SpringLayout.NORTH, lblP_2);
+		lblP_2.setBackground(Color.WHITE);
+		lblP_2.setOpaque(true);
+		lblP_2.setForeground(Color.BLACK);
+		lblP_2.setBounds(125, 88, 438, 14);
 		contentPane.add(lblP_2);
 		
 		JLabel lblP_3 = new JLabel("p4");
-		sl_contentPane.putConstraint(SpringLayout.NORTH, lblP_3, 33, SpringLayout.SOUTH, lblP_2);
-		sl_contentPane.putConstraint(SpringLayout.WEST, lblP_3, 0, SpringLayout.WEST, lblP);
-		sl_contentPane.putConstraint(SpringLayout.EAST, lblP_3, -354, SpringLayout.EAST, contentPane);
+		lblP_3.setBackground(Color.WHITE);
+		lblP_3.setOpaque(true);
+		lblP_3.setForeground(Color.BLACK);
+		lblP_3.setBounds(126, 135, 437, 14);
 		contentPane.add(lblP_3);
 		
 		JLabel lblP_4 = new JLabel("p5");
-		sl_contentPane.putConstraint(SpringLayout.WEST, lblP_4, 0, SpringLayout.WEST, lblP);
-		sl_contentPane.putConstraint(SpringLayout.EAST, lblP_4, -337, SpringLayout.EAST, contentPane);
+		lblP_4.setBackground(Color.WHITE);
+		lblP_4.setOpaque(true);
+		lblP_4.setForeground(Color.BLACK);
+		lblP_4.setBounds(126, 186, 437, 14);
 		contentPane.add(lblP_4);
 		
 		JLabel lblP_5 = new JLabel("p6");
-		sl_contentPane.putConstraint(SpringLayout.SOUTH, lblP_5, -208, SpringLayout.SOUTH, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.SOUTH, lblP_4, -31, SpringLayout.NORTH, lblP_5);
-		sl_contentPane.putConstraint(SpringLayout.WEST, lblP_5, 0, SpringLayout.WEST, lblP);
-		sl_contentPane.putConstraint(SpringLayout.EAST, lblP_5, -363, SpringLayout.EAST, contentPane);
+		lblP_5.setBackground(Color.WHITE);
+		lblP_5.setOpaque(true);
+		lblP_5.setForeground(Color.BLACK);
+		lblP_5.setBounds(126, 231, 437, 14);
 		contentPane.add(lblP_5);
 		
 		JLabel lblP_6 = new JLabel("p7");
-		sl_contentPane.putConstraint(SpringLayout.WEST, lblP_6, 0, SpringLayout.WEST, lblP);
-		sl_contentPane.putConstraint(SpringLayout.EAST, lblP_6, -344, SpringLayout.EAST, contentPane);
+		lblP_6.setBackground(Color.WHITE);
+		lblP_6.setOpaque(true);
+		lblP_6.setForeground(Color.BLACK);
+		lblP_6.setBounds(126, 274, 437, 14);
 		contentPane.add(lblP_6);
 		
 		JLabel lblP_7 = new JLabel("p8");
-		sl_contentPane.putConstraint(SpringLayout.WEST, lblP_7, 0, SpringLayout.WEST, lblP);
-		sl_contentPane.putConstraint(SpringLayout.EAST, lblP_7, -337, SpringLayout.EAST, contentPane);
+		lblP_7.setBackground(Color.WHITE);
+		lblP_7.setOpaque(true);
+		lblP_7.setForeground(Color.BLACK);
+		lblP_7.setBounds(126, 318, 437, 14);
 		contentPane.add(lblP_7);
 		
 		JLabel lblP_8 = new JLabel("p9");
-		sl_contentPane.putConstraint(SpringLayout.WEST, lblP_8, 0, SpringLayout.WEST, lblP);
-		sl_contentPane.putConstraint(SpringLayout.EAST, lblP_8, -337, SpringLayout.EAST, contentPane);
+		lblP_8.setBackground(Color.WHITE);
+		lblP_8.setOpaque(true);
+		lblP_8.setForeground(Color.BLACK);
+		lblP_8.setBounds(126, 364, 437, 14);
 		contentPane.add(lblP_8);
 		
 		JLabel lblP_9 = new JLabel("p10");
-		sl_contentPane.putConstraint(SpringLayout.WEST, lblP_9, 0, SpringLayout.WEST, lblP);
-		sl_contentPane.putConstraint(SpringLayout.EAST, lblP_9, -235, SpringLayout.EAST, contentPane);
+		lblP_9.setBackground(Color.WHITE);
+		lblP_9.setOpaque(true);
+		lblP_9.setForeground(Color.BLACK);
+		lblP_9.setBounds(126, 407, 437, 14);
 		contentPane.add(lblP_9);
 		
 		ArrayList<JLabel> labelak = new ArrayList<JLabel>();
@@ -138,35 +155,28 @@ public class IZerrendatu extends JFrame {
 		g.antzekotasunGuztiakKalkulatu();
 		ArrayList<Pertsona> pertsonak = g.getPertsonak();
 		pertsonak.get(erab).estimatuBaloratuEzDituenak();
-		pertsonak.get(erab).inprimatu();
 		ArrayList<String> izenburuak = pertsonak.get(erab).emanEstimazioAltuenak();
 		
 		JButton btnB = new JButton("Trailerra");
+		btnB.setBounds(5, 15, 92, 23);
 		btnB.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				estekaIreki(izenburuak.get(0));
 			}
 		});
-		sl_contentPane.putConstraint(SpringLayout.NORTH, lblP, 4, SpringLayout.NORTH, btnB);
-		sl_contentPane.putConstraint(SpringLayout.WEST, lblP, 29, SpringLayout.EAST, btnB);
-		sl_contentPane.putConstraint(SpringLayout.NORTH, btnB, 10, SpringLayout.NORTH, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.WEST, btnB, 0, SpringLayout.WEST, contentPane);
 		contentPane.add(btnB);
 		
 		JButton btnB_1 = new JButton("Trailerra");
+		btnB_1.setBounds(5, 51, 92, 23);
 		btnB_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				estekaIreki(izenburuak.get(1));
 			}
 		});
-		sl_contentPane.putConstraint(SpringLayout.NORTH, btnB_1, 13, SpringLayout.SOUTH, btnB);
-		sl_contentPane.putConstraint(SpringLayout.WEST, btnB_1, 0, SpringLayout.WEST, contentPane);
 		contentPane.add(btnB_1);
 		
 		JButton btnB_2 = new JButton("Trailerra");
-		sl_contentPane.putConstraint(SpringLayout.WEST, lblP_2, 28, SpringLayout.EAST, btnB_2);
-		sl_contentPane.putConstraint(SpringLayout.NORTH, btnB_2, -4, SpringLayout.NORTH, lblP_2);
-		sl_contentPane.putConstraint(SpringLayout.EAST, btnB_2, 0, SpringLayout.EAST, btnB);
+		btnB_2.setBounds(5, 88, 92, 23);
 		btnB_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				estekaIreki(izenburuak.get(2));
@@ -175,78 +185,92 @@ public class IZerrendatu extends JFrame {
 		contentPane.add(btnB_2);
 		
 		JButton btnNewButton = new JButton("Trailerra");
+		btnNewButton.setBounds(5, 135, 92, 23);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				estekaIreki(izenburuak.get(3));
 			}
 		});
-		sl_contentPane.putConstraint(SpringLayout.NORTH, btnNewButton, -4, SpringLayout.NORTH, lblP_3);
-		sl_contentPane.putConstraint(SpringLayout.WEST, btnNewButton, 0, SpringLayout.WEST, btnB);
 		contentPane.add(btnNewButton);
 		
 		JButton btnTrailerra = new JButton("Trailerra");
+		btnTrailerra.setBounds(5, 186, 92, 23);
 		btnTrailerra.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				estekaIreki(izenburuak.get(4));
 			}
 		});
-		sl_contentPane.putConstraint(SpringLayout.NORTH, btnTrailerra, -4, SpringLayout.NORTH, lblP_4);
-		sl_contentPane.putConstraint(SpringLayout.EAST, btnTrailerra, 0, SpringLayout.EAST, btnB);
 		contentPane.add(btnTrailerra);
 		
 		JButton btnTrailerra_1 = new JButton("Trailerra");
+		btnTrailerra_1.setBounds(5, 226, 92, 23);
 		btnTrailerra_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				estekaIreki(izenburuak.get(5));
 			}
 		});
-		sl_contentPane.putConstraint(SpringLayout.WEST, btnTrailerra_1, 0, SpringLayout.WEST, btnB);
-		sl_contentPane.putConstraint(SpringLayout.SOUTH, btnTrailerra_1, -208, SpringLayout.SOUTH, contentPane);
 		contentPane.add(btnTrailerra_1);
 		
 		JButton btnTrailerra_2 = new JButton("Trailerra");
+		btnTrailerra_2.setBounds(5, 274, 92, 23);
 		btnTrailerra_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				estekaIreki(izenburuak.get(6));
 			}
 		});
-		sl_contentPane.putConstraint(SpringLayout.NORTH, btnTrailerra_2, 269, SpringLayout.NORTH, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.NORTH, lblP_6, 4, SpringLayout.NORTH, btnTrailerra_2);
-		sl_contentPane.putConstraint(SpringLayout.WEST, btnTrailerra_2, 0, SpringLayout.WEST, btnB);
 		contentPane.add(btnTrailerra_2);
 		
 		JButton btnTrailerra_3 = new JButton("Trailerra");
+		btnTrailerra_3.setBounds(5, 318, 92, 23);
 		btnTrailerra_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				estekaIreki(izenburuak.get(7));
 			}
 		});
-		sl_contentPane.putConstraint(SpringLayout.NORTH, btnTrailerra_3, 21, SpringLayout.SOUTH, btnTrailerra_2);
-		sl_contentPane.putConstraint(SpringLayout.NORTH, lblP_7, 4, SpringLayout.NORTH, btnTrailerra_3);
-		sl_contentPane.putConstraint(SpringLayout.WEST, btnTrailerra_3, 0, SpringLayout.WEST, btnB);
 		contentPane.add(btnTrailerra_3);
 		
 		JButton btnTrailerra_4 = new JButton("Trailerra");
+		btnTrailerra_4.setBounds(5, 364, 92, 23);
 		btnTrailerra_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				estekaIreki(izenburuak.get(8));
 			}
 		});
-		sl_contentPane.putConstraint(SpringLayout.NORTH, btnTrailerra_4, 23, SpringLayout.SOUTH, btnTrailerra_3);
-		sl_contentPane.putConstraint(SpringLayout.NORTH, lblP_8, 4, SpringLayout.NORTH, btnTrailerra_4);
-		sl_contentPane.putConstraint(SpringLayout.WEST, btnTrailerra_4, 0, SpringLayout.WEST, btnB);
 		contentPane.add(btnTrailerra_4);
 		
 		JButton btnTrailerra_5 = new JButton("Trailerra");
+		btnTrailerra_5.setBounds(5, 407, 92, 23);
 		btnTrailerra_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				estekaIreki(izenburuak.get(9));
 			}
 		});
-		sl_contentPane.putConstraint(SpringLayout.NORTH, btnTrailerra_5, 20, SpringLayout.SOUTH, btnTrailerra_4);
-		sl_contentPane.putConstraint(SpringLayout.NORTH, lblP_9, 4, SpringLayout.NORTH, btnTrailerra_5);
-		sl_contentPane.putConstraint(SpringLayout.WEST, btnTrailerra_5, 0, SpringLayout.WEST, btnB);
 		contentPane.add(btnTrailerra_5);
+		
+		JButton btnItxi = new JButton("Itxi");
+		btnItxi.setBounds(705, 424, 64, 23);
+		btnItxi.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
+		contentPane.add(btnItxi);
+		
+		JButton btnAtzera = new JButton("Atzera");
+		btnAtzera.setBounds(622, 424, 73, 23);
+		btnAtzera.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				IHamarPelikula frame = new IHamarPelikula();
+				frame.setVisible(true);
+			}
+		});
+		contentPane.add(btnAtzera);
+		
+		JLabel lblAlgo = new JLabel("");
+		lblAlgo.setIcon(new ImageIcon("atzealdeak/filmstrip-91434_960_720.jpg"));
+		lblAlgo.setBounds(0, 0, 784, 462);
+		contentPane.add(lblAlgo);
 		
 		
 		
